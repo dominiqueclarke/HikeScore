@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="HikeScore">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body ng-controller="mainCtrl">
+  {{test}}
+
+  {{meetups}}
+  {{trails}}
+
+  <ul>
+    <li ng-repeat="event in events">
+      <ul>
+        <li>{{event.name}}</li>
+        <li>{{event.group.name}}</li>
+        <li>{{event.time | date:'EEEE, MMMM d, h:mma'}}</li>
+        <li ng-bind-html="event.description | to_trusted"></li>
+        <li>{{event.venue.name}}</li>
+        <li>{{event.venue.address_1}}</li>
+      </ul>
+    </li>
+  </ul>
+  {{events}}
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/mainCtrl.js"></script>
+  <script src="js/meetupService.js"></script>
+  <script src="js/trailsService.js"></script>
+  <script src="js/htmlFilter.js"></script>
+  <script src="js/htmlFilter.js"></script>
+
+
+</body>
+</html>
