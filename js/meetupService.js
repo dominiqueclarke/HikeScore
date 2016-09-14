@@ -18,11 +18,9 @@ var meetupKey = '&key=316117544802f67c622333601c272&sign=true&photo-host=public'
 // }
 // 'https://api.meetup.com/2/events?key=ABDE12456AB2324445&group_urlname=ny-tech&sign=true'
 this.getMeetupData = function (zip) {
-  $http.defaults.headers.delete = {};
   return $http( {
     url: meetupBaseUrl + '75201' + meetupKey
     , method: 'GET'
-    , headers: {'Authorization': 'Bearer 316117544802f67c622333601c272'}
   })
 }
 
