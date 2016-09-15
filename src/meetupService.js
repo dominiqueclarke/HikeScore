@@ -1,7 +1,7 @@
 angular.module('HikeScore')
 .service('meetupService', function($http, $q) {
-var meetupBaseUrl = 'https://api.meetup.com/find/groups?&radius=10&category=23&zip=';
-var meetupKey = '&key=316117544802f67c622333601c272&sign=true&photo-host=public';
+var meetupBaseUrl = 'https://cfe-meetup-api.herokuapp.com/find/groups?&radius=10&category=23&zip=';
+var meetupKey = '&key=316117544802f67c622333601c272';
 
 // function concatQueryStrings(meetups) {
 //   var QueryString = "";
