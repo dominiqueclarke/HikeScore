@@ -1,0 +1,12 @@
+<input
+  ng-model="zipCodeInput"
+  type="text"
+  pattern="[0-9]*"
+  maxlength="5"
+  required name="zip"
+  id="zip">
+</input>
+<button ng-click="getTrailData(zipCodeInput)">Enter Zip</button>
+<span ng-show="geoData.address" class="ng-hide">{{geoData.address}}</span>
+<span ng-show="geoData.error" class="ng-hide">{{geoData.error}}</span>
+<ui-view></ui-view>

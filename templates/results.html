@@ -1,0 +1,22 @@
+<!-- <mapbox places="places" geo-data="geoData"></mapbox> -->
+
+<button ng-click="activityFilter = 'Hiking'">Hiking</button>
+<button ng-click="activityFilter = 'Mountain Biking'">Mountain Biking</button>
+<button ng-click="activityFilter = 'Camping'">Camping</button>
+<button ng-click="activityFilter = 'Snow Sports'">Snow Sports</button>
+<input ng-model="searchInput" type="text"></input>
+
+<div ng-repeat="place in places">
+  <div ng-repeat="activity in place.activities | filter: { activity_type_name: activityFilter } | filter: searchInput">
+    <p style="text-transform: capitalize">{{activity.activity_type_name}}</p>
+    <p>{{activity.name}}</p>
+    <p>{{place.city}}, {{place.state}}</p>
+    <p ng-show="place.distance" class="ng-hide">{{place.distance}}</p>
+    <p>{{activity.length}}</p>
+    <p>{{activity.url}}</p>
+    <img ng-src="{{activity.thumbnail}}" alt="{{activity.name}}"/>
+    <p ng-bind-html="activity.description | to_trusted"></p>
+  </div>
+  <p></p>
+  <p></p>
+</div>
