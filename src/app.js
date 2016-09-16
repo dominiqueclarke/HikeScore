@@ -1,4 +1,4 @@
-angular.module('HikeScore', ['ui.router'])
+angular.module('HikeScore', ['ui.router', 'ui.materialize'])
 .config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise("/");
   $stateProvider

@@ -24,6 +24,14 @@
     &.activator {
       cursor: pointer;
     }
+    /* Custom Hike-Score background on card title */
+    &.background {
+      width:100%;
+      background-image: -webkit-linear-gradient(bottom, rgba($primary-color, .8), transparent); /* For Chrome 25 and Safari 6, iOS 6.1, Android 4.3 */
+      background-image:    -moz-linear-gradient(bottom, rgba($primary-color, .8), transparent); /* For Firefox (3.6 to 15) */
+      background-image:      -o-linear-gradient(bottom, rgba($primary-color, .8), transparent); /* For old Opera (11.1 to 12.0) */
+      background-image:         linear-gradient(to top, rgba($primary-color, .8), transparent); /* Standard syntax; must be last */
+    }
   }
 
   // Card Sizes

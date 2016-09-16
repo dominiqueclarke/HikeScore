@@ -65,8 +65,13 @@ textarea.materialize-textarea {
 
   // Focused input style
   &:focus:not([readonly]) {
-    border-bottom: 1px solid $input-focus-color;
-    box-shadow: 0 1px 0 0 $input-focus-color;
+    border-bottom:2px solid transparent;
+
+	  -moz-border-image: -moz-linear-gradient(to right, $primary-color 0%, $secondary-color 100%);
+	  -webkit-border-image: -webkit-linear-gradient(to right, $primary-color 0%, $secondary-color 100%);
+	  border-image: linear-gradient(to right, $primary-color 0%, $secondary-color 100%);
+
+	  border-image-slice: 1;
   }
 
   // Focused label style
@@ -118,6 +123,11 @@ textarea.materialize-textarea {
     top: 60px;
     opacity: 0;
     transition: .2s opacity ease-out, .2s color ease-out;
+  }
+
+  //custom Landing Prompt styles
+  &.landing-prompt {
+    text-align:center;
   }
 }
 

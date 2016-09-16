@@ -1,22 +1,40 @@
 <!-- <mapbox places="places" geo-data="geoData"></mapbox> -->
 
-<button ng-click="activityFilter = 'Hiking'">Hiking</button>
-<button ng-click="activityFilter = 'Mountain Biking'">Mountain Biking</button>
-<button ng-click="activityFilter = 'Camping'">Camping</button>
-<button ng-click="activityFilter = 'Snow Sports'">Snow Sports</button>
-<input ng-model="searchInput" type="text"></input>
-
-<div ng-repeat="place in places">
-  <div ng-repeat="activity in place.activities | filter: { activity_type_name: activityFilter } | filter: searchInput">
-    <p style="text-transform: capitalize">{{activity.activity_type_name}}</p>
-    <p>{{activity.name}}</p>
-    <p>{{place.city}}, {{place.state}}</p>
-    <p ng-show="place.distance" class="ng-hide">{{place.distance}}</p>
-    <p>{{activity.length}}</p>
-    <p>{{activity.url}}</p>
-    <img ng-src="{{activity.thumbnail}}" alt="{{activity.name}}"/>
-    <p ng-bind-html="activity.description | to_trusted"></p>
+<div class="activities">
+  <h3 class="center-align">Nearby Adventures</h3>
+  <button ng-click="activityFilter = 'Hiking'">Hiking</button>
+  <button ng-click="activityFilter = 'Mountain Biking'">Mountain Biking</button>
+  <button ng-click="activityFilter = 'Camping'">Camping</button>
+  <button ng-click="activityFilter = 'Snow Sports'">Snow Sports</button>
+  <input ng-model="searchInput" type="text"></input>
+  <div class="row">
+    <div ng-repeat="place in places">
+      <div ng-repeat="activity in place.activities | filter: { activity_type_name: activityFilter } | filter: searchInput">
+        <div class="col s12 m6 l4">
+          <div class="card">
+            <div class="card-image">
+              <img ng-src="{{activity.thumbnail}}" alt="{{activity.name}}"/>
+              <span class="card-title background">{{activity.name}} {{activity.activity_type_name}}</span>
+            </div>
+            <div class="card-content">
+              <p>{{place.city}}, {{place.state}}</p>
+              <p ng-show="place.distance" class="ng-hide">{{place.distance}}</p>
+              <p>{{activity.length}}</p>
+              <p class="activator teal-text">More Info</p>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title hike-score-green-text">
+                {{activity.name}} {{activity.activity_type_name}}
+                <i class="material-icons right">close</i>
+              </span>
+              <p ng-bind-html="activity.description | to_trusted"></p>
+              <a href={{activity.url}} target="_blank" class="teal-text">Let's go!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p></p>
+    <p></p>
   </div>
-  <p></p>
-  <p></p>
 </div>

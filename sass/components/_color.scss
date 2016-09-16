@@ -6,6 +6,19 @@
 
 // Google Color Palette defined: http://www.google.com/design/spec/style/color.html
 
+/* Cutom Hike-Score color */
+$hike-score-green: (
+  "base": #065143,
+  "lighten-5":  #DEE8E6,
+  "lighten-4":  #B1C9C4,
+  "lighten-3":  #83A8A1,
+  "lighten-2":  #50847B,
+  "lighten-1":  #2B6A5F,
+  "darken-1":   #05493C,
+  "darken-2":   #044136,
+  "darken-3":   #04392F,
+  "darken-4":   #032A23,
+);
 
 $materialize-red: (
   "base":       #e51c23,
@@ -337,7 +350,15 @@ $shades: (
   "transparent":  transparent
 );
 
+//$primary-color-light: lighten($primary-color, 15%) !default;
+//$primary-color-dark: darken($primary-color, 15%) !default;
+
+//$success-color: color($green, "base") !default;
+//$error-color: color($red, "base") !default;
+//$link-color: color($light-blue, "darken-1") !default;
+
 $colors: (
+  "hike-score-green": $hike-score-green,
   "materialize-red": $materialize-red,
   "red": $red,
   "pink": $pink,
@@ -360,6 +381,7 @@ $colors: (
   "grey": $grey,
   "shades": $shades
 );
+
 
 
 // Color Classes
@@ -409,4 +431,3 @@ $colors: (
   @warn "Unknown `#{name}` in $colors.";
   @return null;
 }
-
