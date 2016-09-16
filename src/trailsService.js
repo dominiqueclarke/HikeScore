@@ -18,6 +18,9 @@ this.getTrailData = function (lat, lon) {
     var places = results.data.places;
     for(var x in places) {
       for(var y in places[x].activities) {
+        if(places[x].activities[y].thumbnail === null) {
+          places[x].activities[y].thumbnail = 'http://placehold.it/350x350';
+        }
         if(places[x].activities[y].activity_type_name === "camping") {
           delete places[x].activities[y].length;
         }
