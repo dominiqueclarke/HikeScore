@@ -1,14 +1,20 @@
-<!-- <mapbox places="places" geo-data="geoData"></mapbox> -->
+<mapbox places="places" geo-data="geoData"></mapbox>
 
 <div class="activities">
   <h3 class="center-align">Nearby Adventures</h3>
-  <button ng-click="activityFilter = 'Hiking'">Hiking</button>
-  <button ng-click="activityFilter = 'Mountain Biking'">Mountain Biking</button>
-  <button ng-click="activityFilter = 'Camping'">Camping</button>
-  <button ng-click="activityFilter = 'Snow Sports'">Snow Sports</button>
-  <input ng-model="searchInput" type="text"></input>
   <div class="row">
-    <div ng-repeat="place in places">
+      <div class="col s12">
+          <ul tabs reload="allTabContentLoaded">
+              <li ng-click="activityFilter = 'Hiking'" class="tab col s3"><a href="#test1">Hiking</a></li>
+              <li ng-click="activityFilter = 'Mountain Biking'" class="tab col s3"><a class="active" href="#test2">Mountain Biking</a></li>
+              <li ng-click="activityFilter = 'Camping'" class="tab col s3"><a href="#test3">Camping</a></li>
+              <li ng-click="activityFilter = 'Snow Sports'" class="tab col s3"><a href="#test4">Snow Sports</a></li>
+              <li class="tab col s3"><a href="#test4">Search</a></li>
+          </ul>
+      </div>
+  </div>
+  <div class="row">
+    <div ng-repeat="place in places" ng-show="place.display" class="ng-hide">
       <div ng-repeat="activity in place.activities | filter: { activity_type_name: activityFilter } | filter: searchInput">
         <div class="col s12 m6 l4">
           <div class="card">

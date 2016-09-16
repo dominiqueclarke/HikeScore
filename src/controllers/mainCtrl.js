@@ -24,18 +24,25 @@ angular.module('HikeScore')
             trailsService.getTrailData(results.lat, results.lon)
             .then(function(places) {
               for(var prop in places) {
-                //long the length of the place city
-                var cityLength = places[prop].city.length;
-                //create a substring of cityLength from geoData address, and compare to place city to see if it's the same city
-                if($scope.geoData.address.substring(0, cityLength) === places[prop].city) {
-                  places[prop].distance = null; //register that it's the same city
+                //log the length of the place city
+                //This code is in the controller instead of service because it requires use of scope
+                places[prop].display = true;
+                if(places[prop].city === null) {
+                  places[prop].display = false;
                 }
                 else {
-                  var placeObj = {
-                    lat: places[prop].lat
-                    , lon: places[prop].lon
-                  };
-                  places[prop].distance = zipcodeService.getDistance($scope.geoData, placeObj) + " miles from " + $scope.geoData.address.substring(0, $scope.geoData.address.indexOf(',')); //adding human readable text to miles in controller instead of service since controller has access to scope.
+                  var cityLength = places[prop].city.length;
+                  //create a substring of cityLength from geoData address, and compare to place city to see if it's the same city
+                  if($scope.geoData.address.substring(0, cityLength) === places[prop].city) {
+                    places[prop].distance = null; //register that it's the same city
+                  }
+                  else {
+                    var placeObj = {
+                      lat: places[prop].lat
+                      , lon: places[prop].lon
+                    };
+                    places[prop].distance = zipcodeService.getDistance($scope.geoData, placeObj) + " miles from " + $scope.geoData.address.substring(0, $scope.geoData.address.indexOf(',')); //adding human readable text to miles in controller instead of service since controller has access to scope.
+                  }
                 }
               }
               $scope.places = places;

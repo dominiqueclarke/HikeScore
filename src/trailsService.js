@@ -17,8 +17,22 @@ this.getTrailData = function (lat, lon) {
     console.log(results);
     var places = results.data.places;
     for(var x in places) {
-      for(var y in places[x].activities)
-        places[x].activities[y].length += " miles long";
+      for(var y in places[x].activities) {
+        if(places[x].activities[y].activity_type_name === "camping") {
+          delete places[x].activities[y].length;
+        }
+        else {
+          if(places[x].activities[y].length > 1) {
+            places[x].activities[y].length += " miles long";
+          }
+          else if(places[x].activities[y].length === 1) {
+            places[x].activities[y].length = " mile long";
+          }
+          else {
+            places[x].activities[y].length = "Less than a mile long";
+          }
+        }
+      }
     }
     return results.data.places;
   });
