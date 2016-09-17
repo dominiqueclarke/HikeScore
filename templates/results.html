@@ -26,14 +26,14 @@
                 <img ng-src="{{activity.thumbnail}}" alt="{{activity.name}}"/>
                 <span class="card-title background">{{activity.name}} {{activity.activity_type_name}}</span>
               </div>
-              <div class="card-content">
+              <div class="card-content flow-text">
                 <p>{{place.city}}, {{place.state}}</p>
-                <p ng-show="place.distance" class="ng-hide">{{place.distance}}</p>
+                <p ng-show="place.distance" class="ng-hide">{{place.humanReadableDistance}}</p>
                 <p>{{activity.length}}</p>
                 <p class="activator teal-text">More Info</p>
               </div>
               <div class="card-reveal">
-                <span class="card-title hike-score-green-text">
+                <span class="card-title hike-score-green-text text-lighten-1">
                   {{activity.name}} {{activity.activity_type_name}}
                   <i class="material-icons right">close</i>
                 </span>

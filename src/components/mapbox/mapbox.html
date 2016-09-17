@@ -1,7 +1,7 @@
 <div id='map-container'>
   <div id='map' class="col s7"></div>
   <div id="place-content" class="col s5">
-    <p>{{place.name}}</p>
+    <h3 class="hike-score-green-text text-lighten-1">{{place.name}}</h3>
     <p>{{place.city}}, {{place.state}}</p>
     <p>{{place.humanReadableDistance}}</p>
     <div ng-repeat="activity in place.activities">
@@ -33,8 +33,10 @@
     <div
       ng-repeat="activity in place.activities | filter: { activity_type_name: selectedActivity }"
       class="selected-activity">
-      <p>{{place.name}} {{activity.activity_type_name}}</p>
-      <p ng-bind-html="activity.description | to_trusted"></p>
+      <h4 class="hike-score-green-text text-lighten-1">{{place.name}} {{activity.activity_type_name}}</h4>
+      <p class="length left">{{activity.length}}</p>
+      <a href={{activity.url}} target="_blank" class="url teal-text left">More info</a>
+      <p ng-bind-html="activity.description | to_trusted" class="description"></p>
     </div>
   </div>
 </div>

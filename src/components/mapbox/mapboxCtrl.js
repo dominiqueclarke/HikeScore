@@ -8,7 +8,7 @@ angular.module('HikeScore')
             var map = new mapboxgl.Map({
                 container: 'map',
                 style: 'mapbox://styles/deeclarke/cit3875o5003y2xo9h9ca4xwj',
-                center: [$scope.geoData.lon, $scope.geoData.lat],
+                center: [$scope.places[0].lon, $scope.places[0].lat],
                 zoom: 10
             });
 

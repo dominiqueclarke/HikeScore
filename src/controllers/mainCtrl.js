@@ -34,7 +34,7 @@ angular.module('HikeScore')
                   var cityLength = places[prop].city.length;
                   //create a substring of cityLength from geoData address, and compare to place city to see if it's the same city
                   if($scope.geoData.address.substring(0, cityLength) === places[prop].city) {
-                    places[prop].distance = null; //register that it's the same city
+                    places[prop].distance = 0; //register that it's the same city
                   }
                   else {
                     var placeObj = {
@@ -46,6 +46,18 @@ angular.module('HikeScore')
                   }
                 }
               }
+              places.sort(function(a, b){
+                console.log(a);
+                console.log(b);
+                if (a.distance > b.distance) {
+                    return 1;
+                }
+                if (a.distance < b.distance) {
+                  return -1;
+                }
+                // a must be equal to b
+                return 0;
+              });
               $scope.places = places;
               $state.go('results', {zip: zip, places: $scope.places, geoData: $scope.geoData});
             });

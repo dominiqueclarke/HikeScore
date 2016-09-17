@@ -9452,17 +9452,44 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 }
 /* Custom Hike Score components */
 /* Custom Mapbox styling for HikeScore */
-/* line 3, ../sass/components/_mapbox.scss */
-#map-container #map {
-  width: 53.333%;
+/* line 2, ../sass/components/_mapbox.scss */
+#map-container {
+  font-size: 1.2rem;
   height: 650px;
 }
+/* line 5, ../sass/components/_mapbox.scss */
+#map-container h3 {
+  margin-top: 0;
+  font-size: 2.5rem;
+}
 /* line 9, ../sass/components/_mapbox.scss */
+#map-container h4 {
+  font-size: 1.7rem;
+}
+/* line 12, ../sass/components/_mapbox.scss */
+#map-container #map {
+  width: 53.333%;
+  height: 100%;
+}
+/* line 16, ../sass/components/_mapbox.scss */
+#map-container #place-content {
+  height: 100%;
+  overflow: scroll;
+}
+/* line 20, ../sass/components/_mapbox.scss */
 #map-container #place-content .map-activity-icon img {
   height: 30px;
   width: 30px;
 }
-/* line 14, ../sass/components/_mapbox.scss */
+/* line 25, ../sass/components/_mapbox.scss */
 #map-container #place-content .selected-activity {
+  clear: both;
+}
+/* line 27, ../sass/components/_mapbox.scss */
+#map-container #place-content .selected-activity .length {
+  margin: 0 20px 0 0;
+}
+/* line 30, ../sass/components/_mapbox.scss */
+#map-container #place-content .selected-activity .description {
   clear: both;
 }

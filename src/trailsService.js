@@ -16,6 +16,9 @@ this.getTrailData = function (lat, lon) {
   .then(function(results) {
     console.log(results);
     var places = results.data.places;
+    places.forEach(function(entry, index){
+      console.log(index + " " + entry.city + " " + entry.state)
+    });
     for(var place in places) {
       if(places[place].activities.length === 0) {
         places[place].display = false;
@@ -27,7 +30,8 @@ this.getTrailData = function (lat, lon) {
         if(places[place].activities[activity].thumbnail === null) {
           places[place].activities[activity].thumbnail = 'http://placehold.it/350x350';
         }
-        if(places[place].activities[activity].activity_type_name === "camping") {
+        if(places[place].activities[activity].activity_type_name === "camping" ||
+          places[place].activities[activity].activity_type_name === "snow sports") {
           delete places[place].activities[activity].length;
         }
         else {
