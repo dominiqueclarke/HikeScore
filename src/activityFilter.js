@@ -1,3 +1,4 @@
+/* NOT IN USE */
 angular.module('HikeScore')
 .filter('byActivity', function() {
   return function (activities, types) {

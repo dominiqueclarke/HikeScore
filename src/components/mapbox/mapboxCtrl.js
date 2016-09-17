@@ -70,6 +70,7 @@ angular.module('HikeScore')
             //           .addTo(map);
             //   });
               map.on('click', function (e) {
+                  delete $scope.selectedActivity; //reset selectedActivity so that all activities show when a new place is selected
                   // Use queryRenderedFeatures to get features at a click event's point
                   // Use layer option to avoid getting results from other layers
                   var features = map.queryRenderedFeatures(e.point, { layers: ['points'] });

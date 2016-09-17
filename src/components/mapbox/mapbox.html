@@ -13,20 +13,26 @@
       </span>
       <span
         ng-show="activity.activity_type_name === 'mountain biking'"
-        ng-click="selectedActivity = 'Mountain Biking'"
+        ng-click="selectActivity('mountain biking')"
         class="ng-hide map-activity-icon left">
-        <img src="img/icons/biking.svg" alt="hiking"/>
+        <img src="img/icons/biking.svg" alt="biking"/>
       </span>
       <span
         ng-show="activity.activity_type_name === 'camping'"
-        ng-click="selectedActivity = 'camping'"
+        ng-click="selectActivity('camping')"
         class="ng-hide map-activity-icon left">
-        <img src="img/icons/camping.svg" alt="hiking"/>
+        <img src="img/icons/camping.svg" alt="camping"/>
       </span>
-      <button ng-click="selectActivity('hiking')">Hiking</button>
+      <span
+        ng-show="activity.activity_type_name === 'snow'"
+        ng-click="selectActivity('snow sports')"
+        class="ng-hide map-activity-icon left">
+        <img src="img/icons/snowflake.svg" alt="snow sports"/>
+      </span>
     </div>
-    {{selectedActivity}}
-    <div ng-repeat="activity in place.activities | filter: { activity_type_name: selectedActivity }">
+    <div
+      ng-repeat="activity in place.activities | filter: { activity_type_name: selectedActivity }"
+      class="selected-activity">
       <p>{{place.name}} {{activity.activity_type_name}}</p>
       <p ng-bind-html="activity.description | to_trusted"></p>
     </div>

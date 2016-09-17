@@ -9462,3 +9462,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   height: 30px;
   width: 30px;
 }
+/* line 14, ../sass/components/_mapbox.scss */
+#map-container #place-content .selected-activity {
+  clear: both;
+}
