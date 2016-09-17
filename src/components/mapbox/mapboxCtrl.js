@@ -12,6 +12,12 @@ angular.module('HikeScore')
                 zoom: 10
             });
 
+            $scope.selectActivity = function(activity) {
+              console.log($scope.selectedActivity);
+              $scope.selectedActivity = activity;
+              console.log($scope.selectedActivity);
+            };
+
             var nav = new mapboxgl.Navigation({position: 'top-left'}); // position is optional
             map.addControl(nav);
 

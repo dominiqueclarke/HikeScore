@@ -9457,13 +9457,8 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   width: 53.333%;
   height: 650px;
 }
-/* line 7, ../sass/components/_mapbox.scss */
-#map-container #place-content {
-  color: #00897b;
-}
 /* line 9, ../sass/components/_mapbox.scss */
-#map-container #place-content svg {
+#map-container #place-content .map-activity-icon img {
   height: 30px;
   width: 30px;
-  fill: #00897b;
 }

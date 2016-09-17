@@ -4,17 +4,31 @@
     <p>{{place.name}}</p>
     <p>{{place.city}}, {{place.state}}</p>
     <p>{{place.humanReadableDistance}}</p>
-    <p ng-repeat="activity in place.activities">
-      <span ng-show="activity.activity_type_name === 'hiking'" class="ng-hide map-acitivity-icon">
+    <div ng-repeat="activity in place.activities">
+      <span
+        ng-show="activity.activity_type_name === 'hiking'"
+        ng-click="selectActivity('hiking')"
+        class="ng-hide map-activity-icon left">
         <img src="img/icons/hiking.svg" alt="hiking"/>
       </span>
-      <span ng-show="activity.activity_type_name === 'mountain biking'" class="ng-hide map-activity-icon">
+      <span
+        ng-show="activity.activity_type_name === 'mountain biking'"
+        ng-click="selectedActivity = 'Mountain Biking'"
+        class="ng-hide map-activity-icon left">
         <img src="img/icons/biking.svg" alt="hiking"/>
       </span>
-      <span ng-show="activity.activity_type_name === 'camping'" class="ng-hide map-activity-icon">
+      <span
+        ng-show="activity.activity_type_name === 'camping'"
+        ng-click="selectedActivity = 'camping'"
+        class="ng-hide map-activity-icon left">
         <img src="img/icons/camping.svg" alt="hiking"/>
       </span>
-        {{activity.activity_type_name}}
-    </p>
+      <button ng-click="selectActivity('hiking')">Hiking</button>
+    </div>
+    {{selectedActivity}}
+    <div ng-repeat="activity in place.activities | filter: { activity_type_name: selectedActivity }">
+      <p>{{place.name}} {{activity.activity_type_name}}</p>
+      <p ng-bind-html="activity.description | to_trusted"></p>
+    </div>
   </div>
 </div>

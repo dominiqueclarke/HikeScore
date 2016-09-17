@@ -5,11 +5,11 @@
     height:650px;
   }
   #place-content {
-    color:$primary-color;
-    svg {
-      height:30px;
-      width:30px;
-      fill: $primary-color;
+    .map-activity-icon {
+      img {
+        height:30px;
+        width:30px;
+      }
     }
   }
 }
