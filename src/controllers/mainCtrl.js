@@ -41,17 +41,19 @@ angular.module('HikeScore')
                       lat: places[prop].lat
                       , lon: places[prop].lon
                     };
-                    places[prop].distance = zipcodeService.getDistance($scope.geoData, placeObj) + " miles from " + $scope.geoData.address.substring(0, $scope.geoData.address.indexOf(',')); //adding human readable text to miles in controller instead of service since controller has access to scope.
+                    places[prop].distance = zipcodeService.getDistance($scope.geoData, placeObj);
+                    places[prop].humanReadableDistance = zipcodeService.getDistance($scope.geoData, placeObj) + " miles from " + $scope.geoData.address.substring(0, $scope.geoData.address.indexOf(',')); //adding human readable text to miles in controller instead of service since controller has access to scope.
                   }
                 }
               }
               $scope.places = places;
-            });
-            console.log('StartTimeout');
-            setTimeout(function() {
               $state.go('results', {zip: zip, places: $scope.places, geoData: $scope.geoData});
-              console.log('Timeout');
-            }, 3000);
+            });
+            // console.log('StartTimeout');
+            // setTimeout(function() {
+            //   $state.go('results', {zip: zip, places: $scope.places, geoData: $scope.geoData});
+            //   console.log('Timeout');
+            // }, 3000);
         });
       }
     }

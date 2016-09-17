@@ -3,6 +3,7 @@ angular.module('HikeScore')
             console.log($scope.geoData);
             var geoJson = getGeoCoordinates();
             console.log(geoJson);
+            $scope.place = $scope.places[0];
             mapboxgl.accessToken = 'pk.eyJ1IjoiZGVlY2xhcmtlIiwiYSI6ImNpbGJlZjFobjB1aXl0eWx4ajJ2emNsNHcifQ.2mpHkUWA9o2RgI2q7w1UHA';
             var map = new mapboxgl.Map({
                 container: 'map',
@@ -22,10 +23,10 @@ angular.module('HikeScore')
                 });
                 map.addLayer({
                     "id": "points",
-                    "type": "text",
+                    "type": "symbol",
                     "source": "points",
                     "layout": {
-                        "icon-image": "{icon}-15",
+                        "icon-image": "location-beacon-green",
                         "text-field": "{title}",
                         "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
                         "text-offset": [0, 0.6],
@@ -48,32 +49,56 @@ angular.module('HikeScore')
                });
             });
 
-            geoJson.data.features.forEach(function(marker) {
-              // create a DOM element for the marker
-              var el = document.createElement('div');
-              el.className = 'marker';
-              el.style.backgroundImage = 'url(img/icons/location-beacon.png)';
-              el.style.width = marker.properties.iconSize[0] + 'px';
-              el.style.height = marker.properties.iconSize[1] + 'px';
-
-
-              // add marker to map
-              new mapboxgl.Marker(el, {offset: [-marker.properties.iconSize[0] / 2, -marker.properties.iconSize[1] / 2]})
-                      .setLngLat(marker.geometry.coordinates)
-                      .addTo(map);
+            // geoJson.data.features.forEach(function(marker) {
+            //   // create a DOM element for the marker
+            //   var el = document.createElement('div');
+            //   el.className = 'marker';
+            //   el.style.backgroundImage = 'url(img/icons/location-beacon.png)';
+            //   el.style.width = marker.properties.iconSize[0] + 'px';
+            //   el.style.height = marker.properties.iconSize[1] + 'px';
+            //
+            //
+            //   // add marker to map
+            //   new mapboxgl.Marker(el, {offset: [-marker.properties.iconSize[0] / 2, 0]})
+            //           .setLngLat(marker.geometry.coordinates)
+            //           .addTo(map);
+            //   });
+              map.on('click', function (e) {
+                  // Use queryRenderedFeatures to get features at a click event's point
+                  // Use layer option to avoid getting results from other layers
+                  var features = map.queryRenderedFeatures(e.point, { layers: ['points'] });
+                  var id = features[0].properties.id;
+                  var name = features[0].properties.title;
+                  //console.log(id);
+                  //var i = 0;
+                  $scope.$apply(function() {
+                      for(var place in $scope.places) {
+                        //console.log($scope.places[place].unique_id);
+                        //console.log(id === $scope.places[place].unique_id);
+                        //console.log($scope.places);
+                        //console.log(i);
+                        //i++;
+                        //console.log(name);
+                        //console.log($scope.places[place].name);
+                        //console.log(name === $scope.places[place].name);
+                        if(name === $scope.places[place].name) {
+                          //console.log("i'm true");
+                          //console.log($scope.place);
+                          $scope.place = $scope.places[place];
+                          //console.log($scope.place);
+                        }
+                      }
+                  });
+                  // if there are features within the given radius of the click event,
+                  // fly to the location of the click event
+                  //console.log(features[0]);
+                  if (features.length) {
+                      // Get coordinates from the symbol and center the map on those coordinates
+                      map.flyTo({center: features[0].geometry.coordinates});
+                  }
               });
 
-            map.on('click', function (e) {
-                // Use queryRenderedFeatures to get features at a click event's point
-                // Use layer option to avoid getting results from other layers
-                var features = map.queryRenderedFeatures(e.point, { layers: ['points'] });
-                // if there are features within the given radius of the click event,
-                // fly to the location of the click event
-                if (features.length) {
-                    // Get coordinates from the symbol and center the map on those coordinates
-                    map.flyTo({center: features[0].geometry.coordinates});
-                }
-            });
+
 
             map.on('mousemove', function (e) {
                 var features = map.queryRenderedFeatures(e.point, { layers: ['points'] });
@@ -87,16 +112,17 @@ angular.module('HikeScore')
                     "type": "FeatureCollection",
                     "features": []
                 };
-                for (var prop in $scope.places) {
+                for (var place in $scope.places) {
                     var pointObj = {
                         "type": "Feature",
                         "geometry": {
                             "type": "Point",
-                            "coordinates": [$scope.places[prop].lon, $scope.places[prop].lat]
+                            "coordinates": [$scope.places[place].lon, $scope.places[place].lat]
                         },
                         "properties": {
-                            "title": $scope.places[prop].name,
-                            "iconSize": [32, 32]
+                            "title": $scope.places[place].name,
+                            //"icon": "location-beacon"
+                            "id": $scope.places[place].unique_id
                         }
                     }
                     locationsObj.data.features.push(pointObj);

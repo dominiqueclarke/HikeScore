@@ -1,1 +1,20 @@
-<div id='map'></div>
+<div id='map-container'>
+  <div id='map' class="col s7"></div>
+  <div class="col s5">
+    <p>{{place.name}}</p>
+    <p>{{place.city}}, {{place.state}}</p>
+    <p>{{place.humanReadableDistance}}</p>
+    <p ng-repeat="activity in place.activities">
+      <span ng-show="activity.activity_type_name === 'hiking'"class="ng-hide">
+        <img src="img/icons/hiking.svg" alt="hiking"/>
+      </span>
+      <span ng-show="activity.activity_type_name === 'mountain biking'"class="ng-hide">
+        <img src="img/icons/biking.svg" alt="hiking"/>
+      </span>
+      <span ng-show="activity.activity_type_name === 'camping'"class="ng-hide">
+        <img src="img/icons/camping.svg" alt="hiking"/>
+      </span>
+        {{activity.activity_type_name}}
+    </p>
+  </div>
+</div>

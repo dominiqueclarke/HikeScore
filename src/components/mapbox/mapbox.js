@@ -9,5 +9,6 @@ angular.module('HikeScore')
       , geoData: "="
     }
     , controller: 'mapboxCtrl'
+    //, controllerAs: 'ctrl'
   }
 });
