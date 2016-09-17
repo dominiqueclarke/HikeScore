@@ -11,7 +11,7 @@ angular.module('HikeScore', ['ui.router', 'ui.materialize'])
       url: "/location/:zip"
       , templateUrl: "templates/results.html"
       , controller: "resultsCtrl"
-      , params: {zip: null, places: null, geoData: null}
+      , params: {zip: null, places: null, geoData: null, rating: null}
     })
     .state("contacts", {
       url: "/contacts"

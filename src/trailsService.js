@@ -1,6 +1,11 @@
 angular.module('HikeScore')
 .service('trailsService', function($http, $q, zipcodeService) {
 
+var rating = {};
+this.getRating = function() {
+  return rating;
+}
+
 var trailsBaseUrl = 'https://trailapi-trailapi.p.mashape.com/?radius=25&';
 var trailsKey = 'XYN4UCKBuGmshhnBDXLJYjLJZMwKp1DdwaIjsnFjsSATwnxYuK'
 
@@ -16,9 +21,24 @@ this.getTrailData = function (lat, lon) {
   .then(function(results) {
     console.log(results);
     var places = results.data.places;
-    places.forEach(function(entry, index){
-      console.log(index + " " + entry.city + " " + entry.state)
-    });
+    //assign repeating
+    if(places.length > 80) {
+      rating = {numberRating: 4, textRating: 'extremely'};
+    }
+    else if(places.length > 60) {
+      rating = {numberRating: 3, textRating: 'really'}
+    }
+    else if(places.length > 40) {
+      rating = {numberRating: 2, textRating: 'pretty'}
+    }
+    else if(places.length > 20) {
+      rating = {numberRating: 1, textRating: 'sorta'}
+    }
+    else {
+      rating = {numberRating: 0, textRating: 'not too'}
+    }
+
+    //format data
     for(var place in places) {
       if(places[place].activities.length === 0) {
         places[place].display = false;
@@ -47,7 +67,7 @@ this.getTrailData = function (lat, lon) {
         }
       }
     }
-    return results.data.places;
+    return places;
   });
 }
 
