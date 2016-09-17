@@ -16,23 +16,11 @@ angular.module('HikeScore')
             map.addControl(nav);
 
             map.on('load', function() {
-                map.addSource('points', geoJson);
                 map.addSource('terrain-data', {
                   type: 'vector',
                   url: 'mapbox://mapbox.mapbox-terrain-v2'
                 });
-                map.addLayer({
-                    "id": "points",
-                    "type": "symbol",
-                    "source": "points",
-                    "layout": {
-                        "icon-image": "location-beacon-green",
-                        "text-field": "{title}",
-                        "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
-                        "text-offset": [0, 0.6],
-                        "text-anchor": "top"
-                    }
-                });
+                map.addSource('points', geoJson);
                 map.addLayer({
                    "id": "terrain-data",
                    "type": "line",
@@ -47,6 +35,18 @@ angular.module('HikeScore')
                        "line-width": 1
                    }
                });
+                map.addLayer({
+                    "id": "points",
+                    "type": "symbol",
+                    "source": "points",
+                    "layout": {
+                        "icon-image": "location-beacon-green",
+                        "text-field": "{title}",
+                        "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
+                        "text-offset": [0, 0.6],
+                        "text-anchor": "top"
+                    }
+                });
             });
 
             // geoJson.data.features.forEach(function(marker) {
@@ -69,29 +69,16 @@ angular.module('HikeScore')
                   var features = map.queryRenderedFeatures(e.point, { layers: ['points'] });
                   var id = features[0].properties.id;
                   var name = features[0].properties.title;
-                  //console.log(id);
-                  //var i = 0;
                   $scope.$apply(function() {
                       for(var place in $scope.places) {
-                        //console.log($scope.places[place].unique_id);
-                        //console.log(id === $scope.places[place].unique_id);
-                        //console.log($scope.places);
-                        //console.log(i);
-                        //i++;
-                        //console.log(name);
-                        //console.log($scope.places[place].name);
-                        //console.log(name === $scope.places[place].name);
                         if(name === $scope.places[place].name) {
-                          //console.log("i'm true");
-                          //console.log($scope.place);
                           $scope.place = $scope.places[place];
-                          //console.log($scope.place);
+                          break;
                         }
                       }
                   });
                   // if there are features within the given radius of the click event,
                   // fly to the location of the click event
-                  //console.log(features[0]);
                   if (features.length) {
                       // Get coordinates from the symbol and center the map on those coordinates
                       map.flyTo({center: features[0].geometry.coordinates});
@@ -113,19 +100,20 @@ angular.module('HikeScore')
                     "features": []
                 };
                 for (var place in $scope.places) {
-                    var pointObj = {
-                        "type": "Feature",
-                        "geometry": {
-                            "type": "Point",
-                            "coordinates": [$scope.places[place].lon, $scope.places[place].lat]
-                        },
-                        "properties": {
-                            "title": $scope.places[place].name,
-                            //"icon": "location-beacon"
-                            "id": $scope.places[place].unique_id
-                        }
-                    }
-                    locationsObj.data.features.push(pointObj);
+                  if($scope.places[place].display) {
+                      var pointObj = {
+                          "type": "Feature",
+                          "geometry": {
+                              "type": "Point",
+                              "coordinates": [$scope.places[place].lon, $scope.places[place].lat]
+                          },
+                          "properties": {
+                              "title": $scope.places[place].name,
+                              "id": $scope.places[place].unique_id
+                          }
+                      }
+                      locationsObj.data.features.push(pointObj);
+                  }
                 };
                 return locationsObj;
             }

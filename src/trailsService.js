@@ -16,23 +16,29 @@ this.getTrailData = function (lat, lon) {
   .then(function(results) {
     console.log(results);
     var places = results.data.places;
-    for(var x in places) {
-      for(var y in places[x].activities) {
-        if(places[x].activities[y].thumbnail === null) {
-          places[x].activities[y].thumbnail = 'http://placehold.it/350x350';
+    for(var place in places) {
+      if(places[place].activities.length === 0) {
+        places[place].display = false;
+      }
+      else {
+        places[place].display = true;
+      }
+      for(var activity in places[place].activities) {
+        if(places[place].activities[activity].thumbnail === null) {
+          places[place].activities[activity].thumbnail = 'http://placehold.it/350x350';
         }
-        if(places[x].activities[y].activity_type_name === "camping") {
-          delete places[x].activities[y].length;
+        if(places[place].activities[activity].activity_type_name === "camping") {
+          delete places[place].activities[activity].length;
         }
         else {
-          if(places[x].activities[y].length > 1) {
-            places[x].activities[y].length += " miles long";
+          if(places[place].activities[activity].length > 1) {
+            places[place].activities[activity].length += " miles long";
           }
-          else if(places[x].activities[y].length === 1) {
-            places[x].activities[y].length = " mile long";
+          else if(places[place].activities[activity].length === 1) {
+            places[place].activities[activity].length = " mile long";
           }
           else {
-            places[x].activities[y].length = "Less than a mile long";
+            places[place].activities[activity].length = "Less than a mile long";
           }
         }
       }

@@ -26,8 +26,6 @@
 @import "components/dropdown";
 @import "components/waves";
 @import "components/modal";
-@import "components/media";
-@import "components/activities";
 @import "components/collapsible";
 @import "components/chips";
 @import "components/materialbox";
@@ -40,3 +38,6 @@
 @import "components/date_picker/default";
 @import "components/date_picker/default.date";
 @import "components/date_picker/default.time";
+
+/* Custom Hike Score components */
+@import "components/mapbox";

@@ -26,7 +26,7 @@ angular.module('HikeScore')
               for(var prop in places) {
                 //log the length of the place city
                 //This code is in the controller instead of service because it requires use of scope
-                places[prop].display = true;
+                //places[prop].display = true;
                 if(places[prop].city === null) {
                   places[prop].display = false;
                 }

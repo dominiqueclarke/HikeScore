@@ -6210,49 +6210,6 @@ button.btn-floating {
   will-change: bottom, opacity;
 }
 
-/* Custom Hike Score Media Styles for similating background-image cover/contain on an img tag */
-/* line 3, ../sass/components/_media.scss */
-.cover {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  overflow: hidden;
-}
-
-/* line 15, ../sass/components/_media.scss */
-.cover img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: auto;
-  height: auto;
-  max-height: none;
-  max-width: none;
-  min-height: 100%;
-  min-width: 100%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-}
-
-/* Custom HikeScore activity CSS */
-/* line 3, ../sass/components/_activities.scss */
-.activity {
-  height: 300px;
-  overflow: hidden;
-  position: relative;
-}
-/* line 8, ../sass/components/_activities.scss */
-.activity .activity-image {
-  position: absolute;
-}
-/* line 12, ../sass/components/_activities.scss */
-.activity .activity-content {
-  position: absolute;
-}
-
 /* line 1, ../sass/components/_collapsible.scss */
 .collapsible {
   border-top: 1px solid #ddd;
@@ -9492,4 +9449,21 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   .picker--time .picker__box {
     margin-bottom: 5em;
   }
+}
+/* Custom Hike Score components */
+/* Custom Mapbox styling for HikeScore */
+/* line 3, ../sass/components/_mapbox.scss */
+#map-container #map {
+  width: 53.333%;
+  height: 650px;
+}
+/* line 7, ../sass/components/_mapbox.scss */
+#map-container #place-content {
+  color: #00897b;
+}
+/* line 9, ../sass/components/_mapbox.scss */
+#map-container #place-content svg {
+  height: 30px;
+  width: 30px;
+  fill: #00897b;
 }

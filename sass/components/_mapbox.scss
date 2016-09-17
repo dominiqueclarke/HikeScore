@@ -1,0 +1,15 @@
+/* Custom Mapbox styling for HikeScore */
+#map-container {
+  #map {
+    width:53.333%;
+    height:650px;
+  }
+  #place-content {
+    color:$primary-color;
+    svg {
+      height:30px;
+      width:30px;
+      fill: $primary-color;
+    }
+  }
+}
