@@ -4,6 +4,7 @@ angular.module('HikeScore')
     $scope.zip = $stateParams.zip;
     $scope.geoData = $stateParams.geoData;
     $scope.places = $stateParams.places;
+    $scope.stateRef = $stateParams.stateRef;
     $scope.filterActivity = function(activity) {
         $scope.activityFilter = activity;
     };

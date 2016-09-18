@@ -9,7 +9,7 @@ angular.module('HikeScore')
             container: 'map',
             style: 'mapbox://styles/deeclarke/cit3875o5003y2xo9h9ca4xwj',
             center: [$scope.places[0].lon, $scope.places[0].lat],
-            zoom: 10
+            zoom: 5
         });
 
         $scope.selectActivity = function(activity) {

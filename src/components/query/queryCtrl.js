@@ -1,16 +1,15 @@
 angular.module('HikeScore')
-  .controller('mainCtrl', function($scope, meetupService, trailsService, zipcodeService, $state){
-    $scope.test = "this is working";
-    //$scope.stateRef = $scope.current.name;
+  .controller('queryCtrl', function($scope, meetupService, trailsService, zipcodeService, $state){
 
-    //var pullAllSearches = mainService.pullAllSearches;
-    //pullAllSearches()
+    // var getMeetupData = meetupService.getMeetupData();
+    // getMeetupData.then(function(data) {
+    //   console.log(data.data);
+    //   $scope.meetups = data.data;
+    // })
+    console.log($state);
+    $scope.stateRef = $state.current.name;
+    console.log($scope.stateRef);
 
-    var getMeetupData = meetupService.getMeetupData();
-    getMeetupData.then(function(data) {
-      console.log(data.data);
-      $scope.meetups = data.data;
-    })
 
     $scope.getTrailData = function(zip) {
       var isValidZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(zip);
