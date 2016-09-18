@@ -1,15 +1,16 @@
 angular.module('HikeScore')
     .controller('mapboxCtrl', function($scope) {
-        console.log($scope.geoData);
-        var geoJson = getGeoCoordinates();
-        console.log(geoJson);
+        //console.log($scope.geoData);
+        //var geoJson = getGeoCoordinates();
+        //console.log(geoJson);
+        //console.log($scope.geoJson);
         $scope.place = $scope.places[0];
         mapboxgl.accessToken = 'pk.eyJ1IjoiZGVlY2xhcmtlIiwiYSI6ImNpbGJlZjFobjB1aXl0eWx4ajJ2emNsNHcifQ.2mpHkUWA9o2RgI2q7w1UHA';
         var map = new mapboxgl.Map({
             container: 'map',
             style: 'mapbox://styles/deeclarke/cit3875o5003y2xo9h9ca4xwj',
             center: [$scope.places[0].lon, $scope.places[0].lat],
-            zoom: 5
+            zoom: 10
         });
 
         $scope.selectActivity = function(activity) {
@@ -28,7 +29,7 @@ angular.module('HikeScore')
                 type: 'vector',
                 url: 'mapbox://mapbox.mapbox-terrain-v2'
             });
-            map.addSource('points', geoJson);
+            map.addSource('points', $scope.geoJson);
             map.addLayer({
                 "id": "terrain-data",
                 "type": "line",
@@ -117,13 +118,17 @@ angular.module('HikeScore')
         });
 
         function getGeoCoordinates() {
+            console.log('this is working');
             var locationsObj = {};
             locationsObj.type = "geojson";
             locationsObj.data = {
                 "type": "FeatureCollection",
                 "features": []
             };
-            for (var place in $scope.places) {
+            //console.log($scope.places);
+            //console.log($stateParams.places);
+            for(var place in $scope.places) {
+                console.log(place);
                 if ($scope.places[place].display) {
                     var pointObj = {
                         "type": "Feature",
@@ -143,5 +148,4 @@ angular.module('HikeScore')
             };
             return locationsObj;
         }
-
     });

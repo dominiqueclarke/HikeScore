@@ -7,6 +7,7 @@ angular.module('HikeScore')
     , scope: {
       places: "="
       , geoData: "="
+      , geoJson: "="
     }
     , controller: 'mapboxCtrl'
   }
