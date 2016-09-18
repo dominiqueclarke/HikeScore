@@ -1,0 +1,15 @@
+#query {
+  .input-container {
+    position:relative;
+    input {
+      margin-bottom:0;
+    }
+    .progress {
+      margin-top:0;
+      position:absolute;
+    }
+  }
+  .input-btn {
+    margin-top:20px;
+  }
+}

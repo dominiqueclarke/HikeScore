@@ -1,4 +1,5 @@
 /* Cutom Hike-Score color */
+@import "https://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700";
 /* line 392, ../sass/components/_color.scss */
 .hike-score-green {
   background-color: #065143 !important;
@@ -5095,12 +5096,12 @@ nav .input-field label.active {
   src: url("../fonts/roboto/Roboto-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/roboto/Roboto-Bold.woff2") format("woff2"), url("../fonts/roboto/Roboto-Bold.woff") format("woff"), url("../fonts/roboto/Roboto-Bold.ttf") format("truetype");
   font-weight: 700;
 }
-/* line 2, ../sass/components/_typography.scss */
+/* line 3, ../sass/components/_typography.scss */
 a {
   text-decoration: none;
 }
 
-/* line 6, ../sass/components/_typography.scss */
+/* line 7, ../sass/components/_typography.scss */
 html {
   line-height: 1.5;
   font-family: "Roboto", sans-serif;
@@ -5108,234 +5109,235 @@ html {
   color: rgba(0, 0, 0, 0.87);
 }
 @media only screen and (min-width: 0) {
-  /* line 6, ../sass/components/_typography.scss */
+  /* line 7, ../sass/components/_typography.scss */
   html {
     font-size: 14px;
   }
 }
 @media only screen and (min-width: 992px) {
-  /* line 6, ../sass/components/_typography.scss */
+  /* line 7, ../sass/components/_typography.scss */
   html {
     font-size: 14.5px;
   }
 }
 @media only screen and (min-width: 1200px) {
-  /* line 6, ../sass/components/_typography.scss */
+  /* line 7, ../sass/components/_typography.scss */
   html {
     font-size: 15px;
   }
 }
 
-/* line 25, ../sass/components/_typography.scss */
+/* line 26, ../sass/components/_typography.scss */
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 400;
+  font-family: "Dosis", sans-serif;
+  font-weight: 300;
   line-height: 1.1;
 }
 
-/* line 31, ../sass/components/_typography.scss */
+/* line 33, ../sass/components/_typography.scss */
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
   font-weight: inherit;
 }
 
-/* line 32, ../sass/components/_typography.scss */
+/* line 34, ../sass/components/_typography.scss */
 h1 {
   font-size: 4.2rem;
   line-height: 110%;
   margin: 2.1rem 0 1.68rem 0;
 }
 
-/* line 33, ../sass/components/_typography.scss */
+/* line 35, ../sass/components/_typography.scss */
 h2 {
   font-size: 3.56rem;
   line-height: 110%;
   margin: 1.78rem 0 1.424rem 0;
 }
 
-/* line 34, ../sass/components/_typography.scss */
+/* line 36, ../sass/components/_typography.scss */
 h3 {
   font-size: 2.92rem;
   line-height: 110%;
   margin: 1.46rem 0 1.168rem 0;
 }
 
-/* line 35, ../sass/components/_typography.scss */
+/* line 37, ../sass/components/_typography.scss */
 h4 {
   font-size: 2.28rem;
   line-height: 110%;
   margin: 1.14rem 0 0.912rem 0;
 }
 
-/* line 36, ../sass/components/_typography.scss */
+/* line 38, ../sass/components/_typography.scss */
 h5 {
   font-size: 1.64rem;
   line-height: 110%;
   margin: 0.82rem 0 0.656rem 0;
 }
 
-/* line 37, ../sass/components/_typography.scss */
+/* line 39, ../sass/components/_typography.scss */
 h6 {
   font-size: 1rem;
   line-height: 110%;
   margin: 0.5rem 0 0.4rem 0;
 }
 
-/* line 40, ../sass/components/_typography.scss */
+/* line 42, ../sass/components/_typography.scss */
 em {
   font-style: italic;
 }
 
-/* line 41, ../sass/components/_typography.scss */
+/* line 43, ../sass/components/_typography.scss */
 strong {
   font-weight: 500;
 }
 
-/* line 42, ../sass/components/_typography.scss */
+/* line 44, ../sass/components/_typography.scss */
 small {
   font-size: 75%;
 }
 
-/* line 43, ../sass/components/_typography.scss */
+/* line 45, ../sass/components/_typography.scss */
 .light, footer.page-footer .footer-copyright {
   font-weight: 300;
 }
 
-/* line 44, ../sass/components/_typography.scss */
+/* line 46, ../sass/components/_typography.scss */
 .thin {
   font-weight: 200;
 }
 
-/* line 47, ../sass/components/_typography.scss */
+/* line 49, ../sass/components/_typography.scss */
 .flow-text {
   font-weight: 300;
 }
 @media only screen and (min-width: 360px) {
-  /* line 47, ../sass/components/_typography.scss */
+  /* line 49, ../sass/components/_typography.scss */
   .flow-text {
     font-size: 1.2rem;
   }
 }
 @media only screen and (min-width: 390px) {
-  /* line 47, ../sass/components/_typography.scss */
+  /* line 49, ../sass/components/_typography.scss */
   .flow-text {
     font-size: 1.224rem;
   }
 }
 @media only screen and (min-width: 420px) {
-  /* line 47, ../sass/components/_typography.scss */
+  /* line 49, ../sass/components/_typography.scss */
   .flow-text {
     font-size: 1.248rem;
   }
 }
 @media only screen and (min-width: 450px) {
-  /* line 47, ../sass/components/_typography.scss */
+  /* line 49, ../sass/components/_typography.scss */
   .flow-text {
     font-size: 1.272rem;
   }
 }
 @media only screen and (min-width: 480px) {
-  /* line 47, ../sass/components/_typography.scss */
+  /* line 49, ../sass/components/_typography.scss */
   .flow-text {
     font-size: 1.296rem;
   }
 }
 @media only screen and (min-width: 510px) {
-  /* line 47, ../sass/components/_typography.scss */
+  /* line 49, ../sass/components/_typography.scss */
   .flow-text {
     font-size: 1.32rem;
   }
 }
 @media only screen and (min-width: 540px) {
-  /* line 47, ../sass/components/_typography.scss */
+  /* line 49, ../sass/components/_typography.scss */
   .flow-text {
     font-size: 1.344rem;
   }
 }
 @media only screen and (min-width: 570px) {
-  /* line 47, ../sass/components/_typography.scss */
+  /* line 49, ../sass/components/_typography.scss */
   .flow-text {
     font-size: 1.368rem;
   }
 }
 @media only screen and (min-width: 600px) {
-  /* line 47, ../sass/components/_typography.scss */
+  /* line 49, ../sass/components/_typography.scss */
   .flow-text {
     font-size: 1.392rem;
   }
 }
 @media only screen and (min-width: 630px) {
-  /* line 47, ../sass/components/_typography.scss */
+  /* line 49, ../sass/components/_typography.scss */
   .flow-text {
     font-size: 1.416rem;
   }
 }
 @media only screen and (min-width: 660px) {
-  /* line 47, ../sass/components/_typography.scss */
+  /* line 49, ../sass/components/_typography.scss */
   .flow-text {
     font-size: 1.44rem;
   }
 }
 @media only screen and (min-width: 690px) {
-  /* line 47, ../sass/components/_typography.scss */
+  /* line 49, ../sass/components/_typography.scss */
   .flow-text {
     font-size: 1.464rem;
   }
 }
 @media only screen and (min-width: 720px) {
-  /* line 47, ../sass/components/_typography.scss */
+  /* line 49, ../sass/components/_typography.scss */
   .flow-text {
     font-size: 1.488rem;
   }
 }
 @media only screen and (min-width: 750px) {
-  /* line 47, ../sass/components/_typography.scss */
+  /* line 49, ../sass/components/_typography.scss */
   .flow-text {
     font-size: 1.512rem;
   }
 }
 @media only screen and (min-width: 780px) {
-  /* line 47, ../sass/components/_typography.scss */
+  /* line 49, ../sass/components/_typography.scss */
   .flow-text {
     font-size: 1.536rem;
   }
 }
 @media only screen and (min-width: 810px) {
-  /* line 47, ../sass/components/_typography.scss */
+  /* line 49, ../sass/components/_typography.scss */
   .flow-text {
     font-size: 1.56rem;
   }
 }
 @media only screen and (min-width: 840px) {
-  /* line 47, ../sass/components/_typography.scss */
+  /* line 49, ../sass/components/_typography.scss */
   .flow-text {
     font-size: 1.584rem;
   }
 }
 @media only screen and (min-width: 870px) {
-  /* line 47, ../sass/components/_typography.scss */
+  /* line 49, ../sass/components/_typography.scss */
   .flow-text {
     font-size: 1.608rem;
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 47, ../sass/components/_typography.scss */
+  /* line 49, ../sass/components/_typography.scss */
   .flow-text {
     font-size: 1.632rem;
   }
 }
 @media only screen and (min-width: 930px) {
-  /* line 47, ../sass/components/_typography.scss */
+  /* line 49, ../sass/components/_typography.scss */
   .flow-text {
     font-size: 1.656rem;
   }
 }
 @media only screen and (min-width: 960px) {
-  /* line 47, ../sass/components/_typography.scss */
+  /* line 49, ../sass/components/_typography.scss */
   .flow-text {
     font-size: 1.68rem;
   }
 }
 @media only screen and (max-width: 360px) {
-  /* line 47, ../sass/components/_typography.scss */
+  /* line 49, ../sass/components/_typography.scss */
   .flow-text {
     font-size: 1.2rem;
   }
@@ -9468,7 +9470,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 }
 /* line 12, ../sass/components/_mapbox.scss */
 #map-container #map {
-  width: 53.333%;
+  width: 58.333%;
   height: 100%;
 }
 /* line 16, ../sass/components/_mapbox.scss */
@@ -9492,4 +9494,22 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 /* line 30, ../sass/components/_mapbox.scss */
 #map-container #place-content .selected-activity .description {
   clear: both;
+}
+
+/* line 2, ../sass/components/_query.scss */
+#query .input-container {
+  position: relative;
+}
+/* line 4, ../sass/components/_query.scss */
+#query .input-container input {
+  margin-bottom: 0;
+}
+/* line 7, ../sass/components/_query.scss */
+#query .input-container .progress {
+  margin-top: 0;
+  position: absolute;
+}
+/* line 12, ../sass/components/_query.scss */
+#query .input-btn {
+  margin-top: 20px;
 }

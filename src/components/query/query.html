@@ -1,8 +1,8 @@
-<div>
+<div id="query">
   <div ng-if="stateRef === 'results'">
     <div class="row center">
       <input
-        ng-model="zipCodeInput"
+        ng-model="zipcodeInput"
         class="landing-prompt"
         type="text"
         pattern="[0-9]*"
@@ -10,7 +10,7 @@
         required name="zip"
         id="zip">
       </input>
-      <a ng-click="getTrailData(zipCodeInput)" class="btn-large waves-effect waves-light teal lighten-1">Get Started</a>
+      <a ng-click="getTrailData(zipcodeInput)" class="btn-large waves-effect waves-light teal lighten-1">Get Started</a>
       <span ng-show="geoData.address" class="ng-hide">{{geoData.address}}</span>
       <span ng-show="geoData.error" class="ng-hide">{{geoData.error}}</span>
     </div>
@@ -24,22 +24,26 @@
           <h5 class="header col s12 light">Discover how hike-able your neighborhood is</h5>
         </div>
         <div class="row center">
-          <input
-            ng-model="zipCodeInput"
-            class="landing-prompt"
-            type="text"
-            pattern="[0-9]*"
-            maxlength="5"
-            required name="zip"
-            id="zip">
-          </input>
-          <a ng-click="getTrailData(zipCodeInput)" class="btn-large waves-effect waves-light teal lighten-1">Get Started</a>
-          <span ng-show="geoData.address" class="ng-hide">{{geoData.address}}</span>
-          <span ng-show="geoData.error" class="ng-hide">{{geoData.error}}</span>
+          <div class="input-container">
+            <input
+              ng-model="zipcodeInput"
+              class="landing-prompt"
+              type="text"
+              pattern="[0-9]*"
+              maxlength="5"
+              required name="zip"
+              placeholder="{{placeholder}}"
+              id="zip">
+            </input>
+            <div ng-if="geoData.address" class="progress">
+                <div class="indeterminate"></div>
+            </div>
+          </div>
+          <a ng-click="getTrailData(zipcodeInput)" class="input-btn btn-large waves-effect waves-light teal lighten-1">Get Started</a>
         </div>
         <br><br>
       </div>
     </div>
-    <div parallax><img src="img/background3.jpg" alt="Unsplashed background img 1"></div>
+    <div parallax><img src="img/hikescore-bg2.jpeg" alt="Unsplashed background img 1"></div>
   </div>
 </div>

@@ -8,19 +8,25 @@ angular.module('HikeScore')
     // })
     console.log($state);
     $scope.stateRef = $state.current.name;
+    $scope.placeholder = "ENTER A ZIPCODE"
     console.log($scope.stateRef);
 
 
     $scope.getTrailData = function(zip) {
       var isValidZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(zip);
       if(!isValidZip) {
-        $scope.geoData = {};
-        $scope.geoData.error = "Please enter a valid Zip Code";
+        //using the scope of the input to reassign ng-model to give user feedback on query
+        var scope = angular.element('input').scope();
+        scope.zipcodeInput = "Please enter a valid zipcode";
       }
       else {
         zipcodeService.getZipcodeData(zip) //using the zip to get the lat and lon
         .then(function(results) {
             $scope.geoData = results; //placing the geoData on the scope so we can use it to alert the user of their location
+            //using the scope of the input to reassign ng-model to give user feedback on query
+            var scope = angular.element('input').scope();
+            scope.zipcodeInput = $scope.geoData.address;
+            //fetching trail data
             trailsService.getTrailData(results.lat, results.lon)
             .then(function(places) {
               for(var prop in places) {
