@@ -6,7 +6,7 @@
       <h3 class="center-align">{{geoData.address}} is <span class="rating">{{rating.textRating}}</span> hike-able</h3>
       <div ng-if="rating.numberRating" class="center-align location-score">
         <span>HikeScore: </span>
-        <img style="height:50px; width:50px" src="img/icons/hikescore-logo.png"
+        <img style="height:50px; width:50px" src="img/icons/hike-score-logo.png"
           ng-repeat="i in createRatingRepeat(rating.numberRating) track by $index"
           ng-show="rating.numberRating"
           class="ng-hide"/>

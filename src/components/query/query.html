@@ -1,5 +1,5 @@
 <div id="query">
-  <div ui-sref="home" class="brand grey-text text-lighten-4"><h3>HikeScore</h3><img src="img/icons/hikescore-logo.png" alt="HikeScore"/></div>
+  <div ui-sref="home" class="brand grey-text text-lighten-4"><h3>HikeScore</h3><img src="img/icons/hike-score-logo.png" alt="HikeScore"/></div>
   <div ng-if="stateRef === 'results'" ng-class="'state-' + stateRef">
     <div class="row center teal lighten-1">
       <div class="col s9 right query-container">
@@ -65,7 +65,7 @@
           <div class="card-content">
             <div class="score">
               <span>HikeScore: </span>
-              <img ng-src="img/icons/hikescore-logo.png"
+              <img ng-src="img/icons/hike-score-logo.png"
                 ng-repeat="i in createRatingRepeat(location.rating) track by $index"/>
             </div>
             <p><a href="" ng-click="getTrailData(location.zip)">Discover hikes in {{location.name}}</a></p>

@@ -122,6 +122,6 @@ var trailsKey = 'XYN4UCKBuGmshhnBDXLJYjLJZMwKp1DdwaIjsnFjsSATwnxYuK'
   var featuredLocations = [
     {name:"Boulder, CO", rating:4, zip:80310, thumbnail: 'img/boulder.jpg'}
     , {name: "Philadelphia, PA", rating:2, zip:19143, thumbnail: 'img/philadelphia.jpg'}
-    , {name: "Dallas, TX", rating:1, zip:75201, thumbnail:'img/dallas.jpg'}
+    , {name: "Dallas, TX", rating:1, zip:75201, thumbnail:'img/dallas-1.jpg'}
   ]
 });
