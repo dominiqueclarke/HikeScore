@@ -14,11 +14,11 @@
             required name="zip"
             id="zip">
           </input>
-          <div ng-if="geoData.address" class="progress">
+          <div ng-if="clicked" class="progress">
               <div class="indeterminate"></div>
           </div>
         </div>
-        <a ng-click="getTrailData(zipcodeInput)" class="col s3 btn-large waves-effect waves-light teal-text text-lighten-1 right">Find Hikes</a>
+        <a ng-click="getTrailData(zipcodeInput); clicked = true" class="col s3 btn-large waves-effect waves-light teal-text text-lighten-1 right">Find Hikes</a>
       </div>
     </div>
   </div>
