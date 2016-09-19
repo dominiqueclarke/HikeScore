@@ -9552,80 +9552,84 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   font-weight: 400;
   margin-top: 60px;
 }
-/* line 23, ../sass/components/_query.scss */
+/* line 22, ../sass/components/_query.scss */
+#query h1, #query h5 {
+  text-shadow: 1px 1px 1px black;
+}
+/* line 26, ../sass/components/_query.scss */
 #query .state-results .query-container {
   margin: 20px 0;
 }
-/* line 25, ../sass/components/_query.scss */
+/* line 28, ../sass/components/_query.scss */
 #query .state-results .query-container .input-container {
   margin-left: 40px;
   padding: 0;
 }
-/* line 28, ../sass/components/_query.scss */
+/* line 31, ../sass/components/_query.scss */
 #query .state-results .query-container .input-container input {
   height: 54px;
 }
-/* line 30, ../sass/components/_query.scss */
+/* line 33, ../sass/components/_query.scss */
 #query .state-results .query-container .input-container input:focus:not([readonly]) {
   border-bottom: 1px solid #a7ffeb;
 }
-/* line 35, ../sass/components/_query.scss */
+/* line 38, ../sass/components/_query.scss */
 #query .state-results .query-container .btn, #query .state-results .query-container .btn-large {
   background-image: url("../img/topography.png");
   color: #26a69a;
 }
-/* line 41, ../sass/components/_query.scss */
+/* line 44, ../sass/components/_query.scss */
 #query .input-container {
   position: relative;
 }
-/* line 43, ../sass/components/_query.scss */
+/* line 46, ../sass/components/_query.scss */
 #query .input-container input {
   margin-bottom: 0;
 }
-/* line 46, ../sass/components/_query.scss */
+/* line 49, ../sass/components/_query.scss */
 #query .input-container .progress {
   margin-top: 0;
   position: absolute;
   bottom: -1px;
   margin-bottom: 0;
 }
-/* line 53, ../sass/components/_query.scss */
+/* line 56, ../sass/components/_query.scss */
 #query a.btn.input-btn, #query a.input-btn.btn-large {
   margin-top: 20px;
 }
-/* line 55, ../sass/components/_query.scss */
+/* line 58, ../sass/components/_query.scss */
 #query a.btn.input-btn:hover, #query a.input-btn.btn-large:hover {
   color: #f5f5f5;
 }
-/* line 59, ../sass/components/_query.scss */
+/* line 62, ../sass/components/_query.scss */
 #query .featured-locations {
   width: 90%;
 }
-/* line 61, ../sass/components/_query.scss */
+/* line 64, ../sass/components/_query.scss */
 #query .featured-locations .card-content {
   position: relative;
 }
-/* line 63, ../sass/components/_query.scss */
+/* line 66, ../sass/components/_query.scss */
 #query .featured-locations .card-content .progress {
   position: absolute;
   top: -10px;
   right: 0;
 }
-/* line 68, ../sass/components/_query.scss */
+/* line 71, ../sass/components/_query.scss */
 #query .featured-locations .card-content .score {
   display: flex;
   align-items: center;
 }
-/* line 69, ../sass/components/_query.scss */
+/* line 72, ../sass/components/_query.scss */
 #query .featured-locations .card-content .score span {
   margin-right: 10px;
 }
-/* line 75, ../sass/components/_query.scss */
+/* line 78, ../sass/components/_query.scss */
 #query .featured-locations .card-content img {
   height: 25px;
   width: 25px;
 }
-/* line 80, ../sass/components/_query.scss */
+/* line 83, ../sass/components/_query.scss */
 #query .featured-locations span {
   font-size: .9rem;
 }
