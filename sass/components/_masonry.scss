@@ -82,6 +82,7 @@ $dur:  3s;
 }
 
 .gradient-btn {
+  cursor:pointer;
   display: block;
   @extend .absolute-centering;
   width: $width;
