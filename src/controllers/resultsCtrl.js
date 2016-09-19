@@ -3,7 +3,8 @@ angular.module('HikeScore')
     $scope.rating = $stateParams.rating;
     $scope.zip = $stateParams.zip;
     $scope.geoData = $stateParams.geoData;
-    $scope.city = $stateParams.address;
+    var city = $stateParams.city;
+    $scope.city = city;
     $scope.geoData.address = "";
     $scope.places = $stateParams.places;
     $scope.activities = $stateParams.activities;
