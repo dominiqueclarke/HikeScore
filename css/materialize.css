@@ -9765,12 +9765,13 @@ to prevent collapsing during animation*/
 
 /* line 84, ../sass/components/_masonry.scss */
 .gradient-btn {
+  cursor: pointer;
   display: block;
   width: 150px;
   height: 40px;
   z-index: 1;
 }
-/* line 92, ../sass/components/_masonry.scss */
+/* line 93, ../sass/components/_masonry.scss */
 .gradient-btn:after {
   content: '';
   background: linear-gradient(120deg, #4db6ac, #009688, #4db6ac);
@@ -9779,7 +9780,7 @@ to prevent collapsing during animation*/
   -webkit-animation: gradient 3s ease-in-out infinite, border 1s forwards ease-in-out reverse;
   animation: gradient 3s ease-in-out infinite, border 1s forwards ease-in-out reverse;
 }
-/* line 99, ../sass/components/_masonry.scss */
+/* line 100, ../sass/components/_masonry.scss */
 .gradient-btn > span {
   border-radius: 3px;
   display: block;
@@ -9792,13 +9793,13 @@ to prevent collapsing during animation*/
 }
 
 /* helpers */
-/* line 111, ../sass/components/_masonry.scss */
+/* line 112, ../sass/components/_masonry.scss */
 .absolute-centering, .gradient-btn {
   margin: auto;
   padding-top: 20px;
 }
 
-/* line 116, ../sass/components/_masonry.scss */
+/* line 117, ../sass/components/_masonry.scss */
 .text-formatting, .gradient-btn {
   text-transform: uppercase;
   text-decoration: none;
