@@ -4,9 +4,6 @@ angular.module('HikeScore')
     restrict: 'E'
     , replace: true
     , templateUrl: './src/components/query/query.html'
-    , scope: {
-      //stateRef: "="
-    }
     , controller: 'queryCtrl'
   }
 });

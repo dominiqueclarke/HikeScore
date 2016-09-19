@@ -9758,3 +9758,84 @@ to prevent collapsing during animation*/
 .gutter-sizer {
   width: 2%;
 }
+
+/* line 84, ../sass/components/_masonry.scss */
+.gradient-btn {
+  display: block;
+  width: 150px;
+  height: 40px;
+  z-index: 1;
+}
+/* line 92, ../sass/components/_masonry.scss */
+.gradient-btn:after {
+  content: '';
+  background: linear-gradient(120deg, #4db6ac, #009688, #4db6ac);
+  background-size: 400% 400%;
+  -moz-animation: gradient 3s ease-in-out infinite, border 1s forwards ease-in-out reverse;
+  -webkit-animation: gradient 3s ease-in-out infinite, border 1s forwards ease-in-out reverse;
+  animation: gradient 3s ease-in-out infinite, border 1s forwards ease-in-out reverse;
+}
+/* line 99, ../sass/components/_masonry.scss */
+.gradient-btn > span {
+  border-radius: 3px;
+  display: block;
+  background: linear-gradient(120deg, #4db6ac, #009688, #4db6ac);
+  background-size: 400% 400%;
+  -webkit-text-fill-color: #f5f5f5;
+  -moz-animation: gradient 3s ease-in-out infinite;
+  -webkit-animation: gradient 3s ease-in-out infinite;
+  animation: gradient 3s ease-in-out infinite;
+}
+
+/* helpers */
+/* line 111, ../sass/components/_masonry.scss */
+.absolute-centering, .gradient-btn {
+  margin: auto;
+  padding-top: 20px;
+}
+
+/* line 116, ../sass/components/_masonry.scss */
+.text-formatting, .gradient-btn {
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  letter-spacing: 2px;
+  line-height: 60px;
+  font-family: 'Open Sans';
+  font-size: 1.2rem;
+}
+
+/* motion */
+@-moz-keyframes gradient {
+  0% {
+    background-position: 14% 0%;
+  }
+  50% {
+    background-position: 87% 100%;
+  }
+  100% {
+    background-position: 14% 0%;
+  }
+}
+@-webkit-keyframes gradient {
+  0% {
+    background-position: 14% 0%;
+  }
+  50% {
+    background-position: 87% 100%;
+  }
+  100% {
+    background-position: 14% 0%;
+  }
+}
+@keyframes gradient {
+  0% {
+    background-position: 14% 0%;
+  }
+  50% {
+    background-position: 87% 100%;
+  }
+  100% {
+    background-position: 14% 0%;
+  }
+}
