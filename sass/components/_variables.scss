@@ -33,14 +33,21 @@
 /* 1. Colors
    ========================================================================== */
 
-$primary-color: color("teal", "darken-1") !default;
+$primary-color: color("teal", "lighten-1") !default;
 $primary-color-light: lighten($primary-color, 15%) !default;
 $primary-color-dark: darken($primary-color, 15%) !default;
 
-$secondary-color: color("hike-score-green", "lighten-1") !default;
+$secondary-color: color("hike-score-green", "lighten-2") !default;
 $success-color: color("green", "base") !default;
 $error-color: color("red", "base") !default;
 $link-color: color("light-blue", "darken-1") !default;
+
+$accent-color: color("teal", "accent-1") !default;
+$grey-color: color("grey", "base") !default;
+$white-color: color("grey", "lighten-4") !default;
+
+
+
 
 
 /* 2. Badges
@@ -143,13 +150,13 @@ $roboto-font-path: "../fonts/roboto/" !default;
 
 // Text Inputs + Textarea
 $input-height: 3rem !default;
-$input-border-color: color("grey", "base") !default;
+$input-border-color: color("grey", "lighten-2") !default;
 $input-border: 1px solid $input-border-color !default;
 $input-background: #fff !default;
 $input-error-color: $error-color !default;
 $input-success-color: $success-color !default;
 $input-focus-color: $secondary-color !default;
-$input-font-size: 1rem !default;
+$input-font-size: 1.2rem !default;
 $input-margin: 0 0 20px 0 !default;
 $input-padding: 0 !default;
 $input-transition: all .3s !default;
@@ -250,7 +257,7 @@ $spinner-default-color: $secondary-color !default;
    ========================================================================== */
 
 $tabs-underline-color: $primary-color-light !default;
-$tabs-text-color: $primary-color !default;
+$tabs-text-color: $secondary-color !default;
 $tabs-bg-color: #fff !default;
 
 

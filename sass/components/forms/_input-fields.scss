@@ -65,13 +65,7 @@ textarea.materialize-textarea {
 
   // Focused input style
   &:focus:not([readonly]) {
-    border-bottom:2px solid transparent;
-
-	  -moz-border-image: -moz-linear-gradient(to right, $primary-color 0%, $secondary-color 100%);
-	  -webkit-border-image: -webkit-linear-gradient(to right, $primary-color 0%, $secondary-color 100%);
-	  border-image: linear-gradient(to right, $primary-color 0%, $secondary-color 100%);
-
-	  border-image-slice: 1;
+    border-bottom:2px solid $accent-color;
   }
 
   // Focused label style

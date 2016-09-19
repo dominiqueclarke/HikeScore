@@ -5,17 +5,11 @@ angular.module('HikeScore', ['ui.router', 'ui.materialize'])
     .state('home', {
       url: '/'
       , templateUrl: "templates/landing.html"
-      , controller: 'mainCtrl'
     })
     .state('results', {
       url: "/location/:zip"
       , templateUrl: "templates/results.html"
       , controller: "resultsCtrl"
       , params: {zip: null, places: null, geoData: null, rating: null}
-    })
-    .state("contacts", {
-      url: "/contacts"
-      , templateUrl: "./src/templates/contacts.html"
-      , controller: "contactsCtrl"
     })
 });

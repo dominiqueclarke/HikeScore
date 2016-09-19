@@ -1,5 +1,5 @@
 angular.module('HikeScore')
-.controller('resultsCtrl', function($scope, $stateParams, $state){
+.controller('resultsCtrl', function($scope, $stateParams, $state, trailsService){
     $scope.rating = $stateParams.rating;
     $scope.zip = $stateParams.zip;
     $scope.geoData = $stateParams.geoData;
@@ -10,9 +10,7 @@ angular.module('HikeScore')
     $scope.filterActivity = function(activity) {
         $scope.activityFilter = activity;
     };
-    $scope.createRatingRepeat = function(rating) {
-      return new Array(rating);
-    };
+    $scope.createRatingRepeat = trailsService.createRatingRepeat;
 
     function getGeoCoordinates() {
         console.log('this is working');

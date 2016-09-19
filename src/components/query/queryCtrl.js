@@ -9,6 +9,8 @@ angular.module('HikeScore')
     console.log($state);
     $scope.stateRef = $state.current.name;
     $scope.placeholder = "ENTER A ZIPCODE"
+    $scope.featuredLocations = trailsService.getFeaturedLocations();
+    $scope.createRatingRepeat = trailsService.createRatingRepeat;
     console.log($scope.stateRef);
 
 
@@ -54,11 +56,6 @@ angular.module('HikeScore')
               $scope.rating = trailsService.getRating();
               $state.go('results', {zip: zip, places: $scope.places, geoData: $scope.geoData, rating: $scope.rating});
             });
-            // console.log('StartTimeout');
-            // setTimeout(function() {
-            //   $state.go('results', {zip: zip, places: $scope.places, geoData: $scope.geoData});
-            //   console.log('Timeout');
-            // }, 3000);
         });
       }
     }

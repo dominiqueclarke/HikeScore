@@ -1,7 +1,12 @@
-@import 'https://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700';
+@import 'https://fonts.googleapis.com/css?family=Dosis:300';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans';
 
 a {
   text-decoration: none;
+  color:$primary-color;
+  &:hover {
+    color:darken($accent-color, 40%);
+  }
 }
 
 html{
@@ -19,7 +24,7 @@ html{
     font-size: 15px;
   }
 
-  font-family: "Roboto", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-weight: normal;
   color: $off-black;
 }

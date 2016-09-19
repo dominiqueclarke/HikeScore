@@ -4,38 +4,39 @@
     <h3 class="hike-score-green-text text-lighten-1">{{place.name}}</h3>
     <p>{{place.city}}, {{place.state}}</p>
     <p>{{place.humanReadableDistance}}</p>
-    <div ng-repeat="activity in place.activities">
+    <span ng-repeat="activity in place.activities">
       <span
-        ng-show="activity.activity_type_name === 'hiking'"
+        ng-if="activity.activity_type_name === 'hiking'"
         ng-click="selectActivity('hiking')"
-        class="ng-hide map-activity-icon left">
+        class="map-activity-icon left">
         <img src="img/icons/hiking.svg" alt="hiking"/>
       </span>
       <span
-        ng-show="activity.activity_type_name === 'mountain biking'"
+        ng-if="activity.activity_type_name === 'mountain biking'"
         ng-click="selectActivity('mountain biking')"
-        class="ng-hide map-activity-icon left">
+        class="map-activity-icon left">
         <img src="img/icons/biking.svg" alt="biking"/>
       </span>
       <span
-        ng-show="activity.activity_type_name === 'camping'"
+        ng-if="activity.activity_type_name === 'camping'"
         ng-click="selectActivity('camping')"
-        class="ng-hide map-activity-icon left">
+        class="map-activity-icon left">
         <img src="img/icons/camping.svg" alt="camping"/>
       </span>
       <span
-        ng-show="activity.activity_type_name === 'snow'"
+        ng-if="activity.activity_type_name === 'snow sports'"
         ng-click="selectActivity('snow sports')"
-        class="ng-hide map-activity-icon left">
+        class="map-activity-icon left">
         <img src="img/icons/snowflake.svg" alt="snow sports"/>
       </span>
-    </div>
+    </span>
+    <span ng-if="place.activities.length > 1" class="filter-activity-prompt hike-score-green-text text-lighten-1">Filter by activity type</span>
     <div
       ng-repeat="activity in place.activities | filter: { activity_type_name: selectedActivity }"
       class="selected-activity">
       <h4 class="hike-score-green-text text-lighten-1">{{place.name}} {{activity.activity_type_name}}</h4>
       <p class="length left">{{activity.length}}</p>
-      <a href={{activity.url}} target="_blank" class="url teal-text left">More info</a>
+      <a href={{activity.url}} target="_blank" class="url left">More info</a>
       <p ng-bind-html="activity.description | to_trusted" class="description"></p>
     </div>
   </div>
