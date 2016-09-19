@@ -16,7 +16,8 @@ angular.module('HikeScore')
         geoData.lat = results.data.results[0].geometry.location.lat;
         geoData.lon = results.data.results[0].geometry.location.lng;
         var address = results.data.results[0].formatted_address;
-        geoData.address = address.slice(0, address.indexOf(zip)).trim(); //parse the data down to just the city and state
+        geoData.address = address.slice(0, address.indexOf(zip)).trim();
+        geoData.city = address.slice(0, address.indexOf(zip)).trim()//parse the data down to just the city and state
         return geoData;
       })
    }
