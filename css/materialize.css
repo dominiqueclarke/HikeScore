@@ -9597,40 +9597,164 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 #query a.btn.input-btn:hover, #query a.input-btn.btn-large:hover {
   color: #f5f5f5;
 }
+/* line 59, ../sass/components/_query.scss */
+#query .featured-locations {
+  width: 90%;
+}
 /* line 61, ../sass/components/_query.scss */
+#query .featured-locations .card-content {
+  position: relative;
+}
+/* line 63, ../sass/components/_query.scss */
+#query .featured-locations .card-content .progress {
+  position: absolute;
+  top: -10px;
+  right: 0;
+}
+/* line 68, ../sass/components/_query.scss */
 #query .featured-locations .card-content .score {
   display: flex;
   align-items: center;
 }
-/* line 62, ../sass/components/_query.scss */
+/* line 69, ../sass/components/_query.scss */
 #query .featured-locations .card-content .score span {
   margin-right: 10px;
 }
-/* line 68, ../sass/components/_query.scss */
+/* line 75, ../sass/components/_query.scss */
 #query .featured-locations .card-content img {
   height: 25px;
   width: 25px;
 }
-/* line 73, ../sass/components/_query.scss */
+/* line 80, ../sass/components/_query.scss */
 #query .featured-locations span {
   font-size: .9rem;
 }
 
-/* line 1, ../sass/components/_results.scss */
-.location-score {
+/* line 2, ../sass/components/_results.scss */
+.results .container {
+  width: 95%;
+}
+/* line 5, ../sass/components/_results.scss */
+.results .location-score {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 20px;
 }
-/* line 6, ../sass/components/_results.scss */
-.location-score span {
+/* line 10, ../sass/components/_results.scss */
+.results .location-score span {
   margin-right: 20px;
   font-size: 1.5rem;
   font-family: 'Dosis', sans-serif;
 }
-/* line 11, ../sass/components/_results.scss */
-.location-score img {
+/* line 15, ../sass/components/_results.scss */
+.results .location-score img {
   height: 50px;
   width: 50px;
+}
+/* line 21, ../sass/components/_results.scss */
+.results .activity-tabs-container .col {
+  padding: 0;
+}
+
+/* Have to set height explicity on ui-view
+to prevent collapsing during animation*/
+/* line 3, ../sass/components/_view-transitions.scss */
+.ui-view-container {
+  min-height: 150vh;
+}
+
+/* line 7, ../sass/components/_view-transitions.scss */
+[ui-view].ng-enter, [ui-view].ng-leave {
+  position: absolute;
+  left: 0;
+  right: 0;
+  -webkit-transition: all .5s ease-in-out;
+  -moz-transition: all .5s ease-in-out;
+  -o-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+}
+
+/* line 17, ../sass/components/_view-transitions.scss */
+[ui-view].ng-enter {
+  opacity: 0;
+  -webkit-transform: scale3d(0.5, 0.5, 0.5);
+  -moz-transform: scale3d(0.5, 0.5, 0.5);
+  transform: scale3d(0.5, 0.5, 0.5);
+}
+
+/* line 24, ../sass/components/_view-transitions.scss */
+[ui-view].ng-enter-active {
+  opacity: 1;
+  -webkit-transform: scale3d(1, 1, 1);
+  -moz-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+}
+
+/* line 31, ../sass/components/_view-transitions.scss */
+[ui-view].ng-leave {
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+/* line 38, ../sass/components/_view-transitions.scss */
+[ui-view].ng-leave-active {
+  opacity: 0;
+  -webkit-transform: translate3d(100px, 0, 0);
+  -moz-transform: translate3d(100px, 0, 0);
+  transform: translate3d(100px, 0, 0);
+}
+
+/* line 1, ../sass/components/_masonry.scss */
+.activity-card {
+  width: 32%;
+  box-sizing: border-box;
+  color: #aaa;
+  font-size: 13px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  margin-bottom: 1rem;
+}
+
+/* line 15, ../sass/components/_masonry.scss */
+.mason-grid {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  transition: height .7s ease-out;
+}
+
+/* line 30, ../sass/components/_masonry.scss */
+.grid-sizer {
+  width: 32%;
+  box-sizing: border-box;
+  cursor: pointer;
+  color: #aaa;
+  font-size: 13px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  margin-bottom: 1rem;
+}
+
+/* line 45, ../sass/components/_masonry.scss */
+.gutter-sizer {
+  width: 2%;
 }

@@ -1,5 +1,5 @@
 angular.module('HikeScore')
-  .controller('queryCtrl', function($scope, meetupService, trailsService, zipcodeService, $state){
+  .controller('queryCtrl', function($scope, trailsService, zipcodeService, $state){
 
     // var getMeetupData = meetupService.getMeetupData();
     // getMeetupData.then(function(data) {
@@ -51,10 +51,23 @@ angular.module('HikeScore')
               places.sort(function(a, b){
                 return a.distance - b.distance;
               });
+              //flattening the Array
+              var activities = [];
+              places.forEach(function(place){
+                place.activities.forEach(function(activity) {
+                  var x = activity;
+                  x.placeCity = place.city;
+                  x.placeState = place.state;
+                  x.placeDistance = place.humanReadableDistance;
+                  x.display = place.display;
+                  activities.push(x);
+                })
+              })
               $scope.places = places;
+              $scope.activities = activities;
               //get rating
               $scope.rating = trailsService.getRating();
-              $state.go('results', {zip: zip, places: $scope.places, geoData: $scope.geoData, rating: $scope.rating});
+              $state.go('results', {zip: zip, places: $scope.places, activities: $scope.activities, geoData: $scope.geoData, rating: $scope.rating});
             });
         });
       }

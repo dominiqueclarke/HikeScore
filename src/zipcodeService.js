@@ -12,9 +12,10 @@ angular.module('HikeScore')
       }).then(function(results){
         console.log(results);
         var geoData = {}
+        geoData.zip = zip;
         geoData.lat = results.data.results[0].geometry.location.lat;
         geoData.lon = results.data.results[0].geometry.location.lng;
-        var address = results.data.results[0].formatted_address
+        var address = results.data.results[0].formatted_address;
         geoData.address = address.slice(0, address.indexOf(zip)).trim(); //parse the data down to just the city and state
         return geoData;
       })

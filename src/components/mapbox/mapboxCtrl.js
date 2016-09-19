@@ -1,9 +1,5 @@
 angular.module('HikeScore')
     .controller('mapboxCtrl', function($scope) {
-        //console.log($scope.geoData);
-        //var geoJson = getGeoCoordinates();
-        //console.log(geoJson);
-        //console.log($scope.geoJson);
         $scope.place = $scope.places[0];
         mapboxgl.accessToken = 'pk.eyJ1IjoiZGVlY2xhcmtlIiwiYSI6ImNpbGJlZjFobjB1aXl0eWx4ajJ2emNsNHcifQ.2mpHkUWA9o2RgI2q7w1UHA';
         var map = new mapboxgl.Map({
@@ -49,7 +45,7 @@ angular.module('HikeScore')
                 "type": "symbol",
                 "source": "points",
                 "layout": {
-                    "icon-image": "location-beacon-green",
+                    "icon-image": "location-beacon-g",
                     "text-field": "{title}",
                     "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
                     "text-offset": [0, 0.6],

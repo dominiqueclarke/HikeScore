@@ -43,7 +43,7 @@ var trailsKey = 'XYN4UCKBuGmshhnBDXLJYjLJZMwKp1DdwaIjsnFjsSATwnxYuK'
       else if(places.length > 20) {
         rating = {numberRating: 1, textRating: 'sorta'}
       }
-      else if(places.length = 0) {
+      else if(places.length = 0 || places.length === undefined) {
         rating = {numberRating: 0, textRating: 'not'}
       }
       else {
@@ -52,6 +52,7 @@ var trailsKey = 'XYN4UCKBuGmshhnBDXLJYjLJZMwKp1DdwaIjsnFjsSATwnxYuK'
 
       //format data
       for(var place in places) {
+        //don't display activities that don't have a length
         if(places[place].activities.length === 0) {
           places[place].display = false;
         }
@@ -59,15 +60,37 @@ var trailsKey = 'XYN4UCKBuGmshhnBDXLJYjLJZMwKp1DdwaIjsnFjsSATwnxYuK'
           places[place].display = true;
         }
         for(var activity in places[place].activities) {
+          //registering what activities are including in the rating
+          var i = 0;
+          while(i <= 4) {
+            if(places[place].activities[activity].activity_type_name === 'hiking') {
+              rating.hiking = true;
+              i++;
+            }
+            if(places[place].activities[activity].activity_type_name === 'mountain biking') {
+              rating.biking = true;
+              i++;
+            }
+            if(places[place].activities[activity].activity_type_name === 'camping') {
+              rating.camping = true;
+              i++;
+            }
+            if(places[place].activities[activity].activity_type_name === 'snow sports') {
+              rating.snow = true;
+              i++;
+            }
+          }
+          //creating thumbnails for activities that don't have them
           var int = getRandomInt(0,placeholderArr.length - 1);
-          console.log(int);
           if(places[place].activities[activity].thumbnail === null) {
             places[place].activities[activity].thumbnail = placeholderArr[int];
           }
+          //deleting length property for hiking and snow sports. doesn't make sense
           if(places[place].activities[activity].activity_type_name === "camping" ||
             places[place].activities[activity].activity_type_name === "snow sports") {
             delete places[place].activities[activity].length;
           }
+          //adding proper mile designations
           else {
             if(places[place].activities[activity].length > 1) {
               places[place].activities[activity].length += " miles long";

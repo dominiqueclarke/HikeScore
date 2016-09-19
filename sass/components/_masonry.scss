@@ -1,0 +1,47 @@
+.activity-card {
+  width: 32%;
+  box-sizing: border-box;
+  color: #aaa;
+  font-size: 13px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  margin-bottom: 1rem;
+}
+
+.mason-grid {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin:0 auto;
+  transition:height .7s ease-out;
+}
+
+.grid-sizer {
+  width: 32%;
+    box-sizing: border-box;
+    cursor: pointer;
+    color: #aaa;
+    font-size: 13px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    margin-bottom: 1rem;
+}
+
+ .gutter-sizer {
+   width:2%;
+ }

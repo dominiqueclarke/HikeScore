@@ -10,6 +10,7 @@
             type="text"
             pattern="[0-9]*"
             maxlength="5"
+            placeholder="SEARCH A NEW AREA"
             required name="zip"
             id="zip">
           </input>
@@ -17,7 +18,7 @@
               <div class="indeterminate"></div>
           </div>
         </div>
-        <a ng-click="getTrailData(zipcodeInput)" class="col s3 btn-large waves-effect waves-light teal-text text-lighten-1 right">Get Started</a>
+        <a ng-click="getTrailData(zipcodeInput)" class="col s3 btn-large waves-effect waves-light teal-text text-lighten-1 right">Find Hikes</a>
       </div>
     </div>
   </div>
@@ -46,15 +47,15 @@
                   <div class="indeterminate"></div>
               </div>
             </div>
-            <a ng-click="getTrailData(zipcodeInput)" class="input-btn btn-large waves-effect waves-light teal lighten-1">Get Started</a>
+            <a ng-click="getTrailData(zipcodeInput)" class="input-btn btn-large waves-effect waves-light teal lighten-1">Find Hikes</a>
           </div>
           <br><br>
         </div>
       </div>
-      <div parallax><img src="img/hikescore-bg2.jpeg" alt="Unsplashed background img 1"></div>
+      <div parallax><img src="img/hikescore-bg-3.jpeg" alt="Find hikes in your area"></div>
     </div>
-    <div class="featured-locations container row">
-      <h3>Featured Locations</h3>
+    <div class="featured-locations row">
+      <h3 class="center-align">Featured Locations</h3>
       <div ng-repeat="location in featuredLocations" class="col s12 l4">
         <div class="card">
           <div class="card-image">
@@ -68,6 +69,9 @@
                 ng-repeat="i in createRatingRepeat(location.rating) track by $index"/>
             </div>
             <p><a href="" ng-click="getTrailData(location.zip)">Discover hikes in {{location.name}}</a></p>
+            <div ng-if="geoData.zip === location.zip" class="progress">
+                <div class="indeterminate"></div>
+            </div>
           </div>
         </div>
       </div>

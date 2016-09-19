@@ -1,4 +1,4 @@
-angular.module('HikeScore', ['ui.router', 'ui.materialize'])
+angular.module('HikeScore', ['ui.router', 'ui.materialize', 'masonry', 'ngAnimate'])
 .config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise("/");
   $stateProvider
@@ -10,6 +10,11 @@ angular.module('HikeScore', ['ui.router', 'ui.materialize'])
       url: "/location/:zip"
       , templateUrl: "templates/results.html"
       , controller: "resultsCtrl"
-      , params: {zip: null, places: null, geoData: null, rating: null}
+      , params: {zip: null, places: null, activities: null, geoData: null, rating: null}
     })
-});
+})
+.run(function($rootScope) {
+  $rootScope.$on('$stateChangeSuccess',function(){
+    $("html, body").animate({ scrollTop: 0 });
+  })
+})
