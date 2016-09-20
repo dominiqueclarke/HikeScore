@@ -12,6 +12,7 @@
   #map {
     width:58.333%;
     height:100%;
+    padding-left:0;
   }
   #place-content {
     height:100%;
@@ -24,6 +25,9 @@
     }
     .filter-activity-prompt {
       margin-left:20px;
+      @media #{$medium-and-down} {
+        display:none;
+      }
     }
     .selected-activity {
       clear:both;

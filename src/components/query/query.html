@@ -2,8 +2,8 @@
   <div ui-sref="home" class="brand grey-text text-lighten-4"><h3>HikeScore</h3><img src="img/icons/hike-score-logo.png" alt="HikeScore"/></div>
   <div ng-if="stateRef === 'results'" ng-class="'state-' + stateRef">
     <div class="row center teal lighten-1">
-      <div class="col s9 right query-container">
-        <div class="input-container col s8">
+      <div class="col s12 m9 right query-container">
+        <div class="input-container col s7">
           <input
             ng-model="zipcodeInput"
             class="landing-prompt grey-text text-lighten-4"
@@ -18,7 +18,7 @@
               <div class="indeterminate"></div>
           </div>
         </div>
-        <a ng-click="getTrailData(zipcodeInput); clicked = true" class="col s3 btn-large waves-effect waves-light teal-text text-lighten-1 right">Find Hikes</a>
+        <a ng-click="getTrailData(zipcodeInput); clicked = true" class="col s4 btn-large waves-effect waves-light teal-text text-lighten-1 right">Find Hikes</a>
       </div>
     </div>
   </div>

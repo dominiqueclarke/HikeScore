@@ -1,11 +1,12 @@
 angular.module('HikeScore')
     .controller('mapboxCtrl', function($scope) {
-        $scope.place = $scope.places[0];
+        var center = $scope.place = $scope.places[0];
+        var places = $scope.places;
         mapboxgl.accessToken = 'pk.eyJ1IjoiZGVlY2xhcmtlIiwiYSI6ImNpbGJlZjFobjB1aXl0eWx4ajJ2emNsNHcifQ.2mpHkUWA9o2RgI2q7w1UHA';
         var map = new mapboxgl.Map({
             container: 'map',
             style: 'mapbox://styles/deeclarke/cit3875o5003y2xo9h9ca4xwj',
-            center: [$scope.places[0].lon, $scope.places[0].lat],
+            center: [center.lon, center.lat],
             zoom: 10
         });
 
@@ -25,7 +26,8 @@ angular.module('HikeScore')
                 type: 'vector',
                 url: 'mapbox://mapbox.mapbox-terrain-v2'
             });
-            map.addSource('points', $scope.geoJson);
+            //should not have put on scope
+            map.addSource('points', getGeoCoordinates());
             map.addLayer({
                 "id": "terrain-data",
                 "type": "line",
@@ -79,9 +81,9 @@ angular.module('HikeScore')
             var id = features[0].properties.id;
             var name = features[0].properties.title;
             $scope.$apply(function() {
-                for (var place in $scope.places) {
-                    if (name === $scope.places[place].name) {
-                        $scope.place = $scope.places[place];
+                for (var place in places) {
+                    if (name === places[place].name) {
+                        $scope.place = places[place];
                         break;
                     }
                 }
@@ -114,29 +116,26 @@ angular.module('HikeScore')
         });
 
         function getGeoCoordinates() {
-            console.log('this is working');
             var locationsObj = {};
             locationsObj.type = "geojson";
             locationsObj.data = {
                 "type": "FeatureCollection",
                 "features": []
             };
-            //console.log($scope.places);
+            //console.log(places);
             //console.log($stateParams.places);
-            for(var place in $scope.places) {
+            for(var place in places) {
                 console.log(place);
-                if ($scope.places[place].display) {
+                if (places[place].display) {
                     var pointObj = {
                         "type": "Feature",
                         "geometry": {
                             "type": "Point",
-                            "coordinates": [$scope.places[place].lon, $scope.places[place].lat]
+                            "coordinates": [places[place].lon, places[place].lat]
                         },
                         "properties": {
-                            "title": $scope.places[place].name,
-                            "img": '<img style="height:100px; width:100px" src="' + $scope.places[place].activities[0].thumbnail + '" />',
-                            "id": $scope.places[place].unique_id,
-                            "iconSize": [40, 40]
+                            "title": places[place].name,
+                            "img": '<img style="height:100px; width:100px" src="' + places[place].activities[0].thumbnail + '" />',
                         }
                     }
                     locationsObj.data.features.push(pointObj);

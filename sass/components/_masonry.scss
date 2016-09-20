@@ -42,9 +42,29 @@
     margin-bottom: 1rem;
 }
 
- .gutter-sizer {
-   width:2%;
- }
+.gutter-sizer {
+  width:2%;
+}
+
+@media #{$medium-and-down} {
+  .grid-sizer, .activity-card {
+    width:49%;
+    left: auto;
+    right: auto;
+  }
+  .mason-grid {
+    width:98%;
+    margin-left:3px !important;
+  }
+}
+
+@media #{$small-and-down} {
+  .grid-sizer, .activity-card {
+    width:100%;
+    left: auto;
+    right: auto;
+  }
+}
 
  @import "compass/css3";
 

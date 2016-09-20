@@ -25,6 +25,9 @@
   .state-results {
     .query-container {
       margin:20px 0;
+      @media #{$medium-and-down} {
+        margin:80px 0 20px;
+      }
       .input-container {
         margin-left: 40px;
         padding:0;
@@ -33,6 +36,9 @@
           &:focus:not([readonly]) {
             border-bottom: 1px solid $accent-color;
           }
+        }
+        @media #{$medium-and-down} {
+          margin-left:0;
         }
       }
       .btn {

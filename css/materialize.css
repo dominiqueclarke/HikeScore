@@ -9500,30 +9500,37 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 #map-container #map {
   width: 58.333%;
   height: 100%;
+  padding-left: 0;
 }
-/* line 16, ../sass/components/_mapbox.scss */
+/* line 17, ../sass/components/_mapbox.scss */
 #map-container #place-content {
   height: 100%;
   overflow: scroll;
 }
-/* line 20, ../sass/components/_mapbox.scss */
+/* line 21, ../sass/components/_mapbox.scss */
 #map-container #place-content .map-activity-icon img {
   height: 30px;
   width: 30px;
 }
-/* line 25, ../sass/components/_mapbox.scss */
+/* line 26, ../sass/components/_mapbox.scss */
 #map-container #place-content .filter-activity-prompt {
   margin-left: 20px;
 }
-/* line 28, ../sass/components/_mapbox.scss */
+@media only screen and (max-width: 992px) {
+  /* line 26, ../sass/components/_mapbox.scss */
+  #map-container #place-content .filter-activity-prompt {
+    display: none;
+  }
+}
+/* line 32, ../sass/components/_mapbox.scss */
 #map-container #place-content .selected-activity {
   clear: both;
 }
-/* line 30, ../sass/components/_mapbox.scss */
+/* line 34, ../sass/components/_mapbox.scss */
 #map-container #place-content .selected-activity .length {
   margin: 0 20px 0 0;
 }
-/* line 33, ../sass/components/_mapbox.scss */
+/* line 37, ../sass/components/_mapbox.scss */
 #map-container #place-content .selected-activity .description {
   clear: both;
 }
@@ -9560,76 +9567,88 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 #query .state-results .query-container {
   margin: 20px 0;
 }
-/* line 28, ../sass/components/_query.scss */
+@media only screen and (max-width: 992px) {
+  /* line 26, ../sass/components/_query.scss */
+  #query .state-results .query-container {
+    margin: 80px 0 20px;
+  }
+}
+/* line 31, ../sass/components/_query.scss */
 #query .state-results .query-container .input-container {
   margin-left: 40px;
   padding: 0;
 }
-/* line 31, ../sass/components/_query.scss */
+/* line 34, ../sass/components/_query.scss */
 #query .state-results .query-container .input-container input {
   height: 54px;
 }
-/* line 33, ../sass/components/_query.scss */
+/* line 36, ../sass/components/_query.scss */
 #query .state-results .query-container .input-container input:focus:not([readonly]) {
   border-bottom: 1px solid #a7ffeb;
 }
-/* line 38, ../sass/components/_query.scss */
+@media only screen and (max-width: 992px) {
+  /* line 31, ../sass/components/_query.scss */
+  #query .state-results .query-container .input-container {
+    margin-left: 0;
+  }
+}
+/* line 44, ../sass/components/_query.scss */
 #query .state-results .query-container .btn, #query .state-results .query-container .btn-large {
   background-image: url("../img/topography.png");
   color: #26a69a;
 }
-/* line 44, ../sass/components/_query.scss */
+/* line 50, ../sass/components/_query.scss */
 #query .input-container {
   position: relative;
 }
-/* line 46, ../sass/components/_query.scss */
+/* line 52, ../sass/components/_query.scss */
 #query .input-container input {
   margin-bottom: 0;
 }
-/* line 49, ../sass/components/_query.scss */
+/* line 55, ../sass/components/_query.scss */
 #query .input-container .progress {
   margin-top: 0;
   position: absolute;
   bottom: -1px;
   margin-bottom: 0;
 }
-/* line 56, ../sass/components/_query.scss */
+/* line 62, ../sass/components/_query.scss */
 #query a.btn.input-btn, #query a.input-btn.btn-large {
   margin-top: 20px;
 }
-/* line 58, ../sass/components/_query.scss */
+/* line 64, ../sass/components/_query.scss */
 #query a.btn.input-btn:hover, #query a.input-btn.btn-large:hover {
   color: #f5f5f5;
 }
-/* line 62, ../sass/components/_query.scss */
+/* line 68, ../sass/components/_query.scss */
 #query .featured-locations {
   width: 90%;
 }
-/* line 64, ../sass/components/_query.scss */
+/* line 70, ../sass/components/_query.scss */
 #query .featured-locations .card-content {
   position: relative;
 }
-/* line 66, ../sass/components/_query.scss */
+/* line 72, ../sass/components/_query.scss */
 #query .featured-locations .card-content .progress {
   position: absolute;
   top: -10px;
   right: 0;
 }
-/* line 71, ../sass/components/_query.scss */
+/* line 77, ../sass/components/_query.scss */
 #query .featured-locations .card-content .score {
   display: flex;
   align-items: center;
 }
-/* line 72, ../sass/components/_query.scss */
+/* line 78, ../sass/components/_query.scss */
 #query .featured-locations .card-content .score span {
   margin-right: 10px;
 }
-/* line 78, ../sass/components/_query.scss */
+/* line 84, ../sass/components/_query.scss */
 #query .featured-locations .card-content img {
   height: 25px;
   width: 25px;
 }
-/* line 83, ../sass/components/_query.scss */
+/* line 89, ../sass/components/_query.scss */
 #query .featured-locations span {
   font-size: .9rem;
 }
@@ -9763,7 +9782,29 @@ to prevent collapsing during animation*/
   width: 2%;
 }
 
-/* line 84, ../sass/components/_masonry.scss */
+@media only screen and (max-width: 992px) {
+  /* line 50, ../sass/components/_masonry.scss */
+  .grid-sizer, .activity-card {
+    width: 49%;
+    left: auto;
+    right: auto;
+  }
+
+  /* line 55, ../sass/components/_masonry.scss */
+  .mason-grid {
+    width: 98%;
+    margin-left: 3px !important;
+  }
+}
+@media only screen and (max-width: 600px) {
+  /* line 62, ../sass/components/_masonry.scss */
+  .grid-sizer, .activity-card {
+    width: 100%;
+    left: auto;
+    right: auto;
+  }
+}
+/* line 104, ../sass/components/_masonry.scss */
 .gradient-btn {
   cursor: pointer;
   display: block;
@@ -9771,7 +9812,7 @@ to prevent collapsing during animation*/
   height: 40px;
   z-index: 1;
 }
-/* line 93, ../sass/components/_masonry.scss */
+/* line 113, ../sass/components/_masonry.scss */
 .gradient-btn:after {
   content: '';
   background: linear-gradient(120deg, #4db6ac, #009688, #4db6ac);
@@ -9780,7 +9821,7 @@ to prevent collapsing during animation*/
   -webkit-animation: gradient 3s ease-in-out infinite, border 1s forwards ease-in-out reverse;
   animation: gradient 3s ease-in-out infinite, border 1s forwards ease-in-out reverse;
 }
-/* line 100, ../sass/components/_masonry.scss */
+/* line 120, ../sass/components/_masonry.scss */
 .gradient-btn > span {
   border-radius: 3px;
   display: block;
@@ -9793,13 +9834,13 @@ to prevent collapsing during animation*/
 }
 
 /* helpers */
-/* line 112, ../sass/components/_masonry.scss */
+/* line 132, ../sass/components/_masonry.scss */
 .absolute-centering, .gradient-btn {
   margin: auto;
   padding-top: 20px;
 }
 
-/* line 117, ../sass/components/_masonry.scss */
+/* line 137, ../sass/components/_masonry.scss */
 .text-formatting, .gradient-btn {
   text-transform: uppercase;
   text-decoration: none;
