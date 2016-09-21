@@ -27,20 +27,12 @@
             <input ng-model="search" ng-show="hideTabs" type="text" class="ng-hide col s9 activity-search"></input>
         </div>
     </div>
-    {{(place.activities | filter: { activity_type_name: activityFilter }).length}}
-    <div ng-show="results.length === 0" class="ng-hide">
-      Sorry, there are no {{activityFilter}} spots in {{zip}}.
-    </div>
     <div class="row mason-grid" masonry='{ "transitionDuration" : "0.1s" , "itemSelector" : ".activity-card", "columnWidth": ".grid-sizer", "gutter": ".gutter-sizer", "percentPosition": "true"}' column-width="200" data-load-images="true" preserve-order>
       <div class="grid-sizer"></div>
       <div class="gutter-sizer"></div>
       <div class="masonry-tile activity-card" ng-if="activity.display" ng-repeat="activity in activities | filter: search | filter: { activity_type_name: activityFilter }">
         <activity-card activity="activity"></activity-card>
       </div>
-    </div>
-    {{filteredActivities.length}}
-    <div ng-show="results.length === 0" class="ng-hide">
-      Sorry, there are no {{activityFilter}} spots in {{zip}}.
     </div>
   </div>
 </div>

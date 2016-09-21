@@ -6,7 +6,6 @@ angular.module('HikeScore')
     $scope.city = $stateParams.geoData.address;
     $scope.places = $stateParams.places;
     $scope.activities = $stateParams.activities;
-    $scope.geoJson = getGeoCoordinates();
     console.log($scope.places);
     $scope.stateRef = $stateParams.stateRef;
     $scope.filterActivity = function(activity) {

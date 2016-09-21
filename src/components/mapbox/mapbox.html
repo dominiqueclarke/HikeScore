@@ -34,7 +34,7 @@
     <div
       ng-repeat="activity in place.activities | filter: { activity_type_name: selectedActivity }"
       class="selected-activity">
-      <h4 class="hike-score-green-text text-lighten-1">{{place.name}} {{activity.activity_type_name}}</h4>
+      <h4 class="hike-score-green-text text-lighten-1"><span ng-bind-html="place.name | to_trusted"></span> {{activity.activity_type_name}}</h4>
       <p class="length left">{{activity.length}}</p>
       <a href={{activity.url}} target="_blank" class="url left">More info</a>
       <p ng-bind-html="activity.description | to_trusted" class="description"></p>
