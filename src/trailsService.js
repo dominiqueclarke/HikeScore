@@ -28,8 +28,12 @@ var trailsKey = 'XYN4UCKBuGmshhnBDXLJYjLJZMwKp1DdwaIjsnFjsSATwnxYuK'
       , headers: {"X-Mashape-Authorization": trailsKey, 'Accept': 'text/plain'}
     })
     .then(function(results) {
-      console.log(results);
+      //console.log(results);
       var places = results.data.places;
+      console.log(places.length);
+      console.log(results.data.places.length);
+      console.log(places);
+      console.log(results.data.places);
       //assign repeating
       if(places.length > 80) {
         rating = {numberRating: 4, textRating: 'extremely'};
@@ -43,7 +47,7 @@ var trailsKey = 'XYN4UCKBuGmshhnBDXLJYjLJZMwKp1DdwaIjsnFjsSATwnxYuK'
       else if(places.length > 20) {
         rating = {numberRating: 1, textRating: 'sorta'}
       }
-      else if(places.length = 0 || places.length === undefined) {
+      else if(places.length === 0 || places.length === undefined) {
         rating = {numberRating: 0, textRating: 'not'}
       }
       else {
@@ -104,6 +108,7 @@ var trailsKey = 'XYN4UCKBuGmshhnBDXLJYjLJZMwKp1DdwaIjsnFjsSATwnxYuK'
           }
         }
       }
+      console.log(places);
       return places;
     });
   }

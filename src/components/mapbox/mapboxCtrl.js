@@ -1,9 +1,11 @@
 angular.module('HikeScore')
     .controller('mapboxCtrl', function($scope) {
-        var center = $scope.place = $scope.places[0];
+        var center = $scope.places[0];
+        $scope.place = $scope.places[0];
         var places = $scope.places;
         mapboxgl.accessToken = 'pk.eyJ1IjoiZGVlY2xhcmtlIiwiYSI6ImNpbGJlZjFobjB1aXl0eWx4ajJ2emNsNHcifQ.2mpHkUWA9o2RgI2q7w1UHA';
-        var map = new mapboxgl.Map({
+        var map = {}
+        map = new mapboxgl.Map({
             container: 'map',
             style: 'mapbox://styles/deeclarke/cit3875o5003y2xo9h9ca4xwj',
             center: [center.lon, center.lat],
