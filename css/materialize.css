@@ -5629,22 +5629,26 @@ small {
   position: relative;
 }
 /* line 4, ../sass/components/_tabs.scss */
+.activity-tabs-container .indicator {
+  z-index: 3;
+}
+/* line 7, ../sass/components/_tabs.scss */
 .activity-tabs-container .activity-search {
   position: absolute;
   height: 48px;
   top: 0;
   z-index: 2;
 }
-/* line 10, ../sass/components/_tabs.scss */
+/* line 13, ../sass/components/_tabs.scss */
 .activity-tabs-container input.activity-search {
   border-bottom: 1px solid #d1d1d1;
 }
-/* line 12, ../sass/components/_tabs.scss */
+/* line 15, ../sass/components/_tabs.scss */
 .activity-tabs-container input.activity-search:focus:not([readonly]) {
   border-bottom: 2px solid #44d4c7;
 }
 
-/* line 18, ../sass/components/_tabs.scss */
+/* line 21, ../sass/components/_tabs.scss */
 .tabs {
   display: flex;
   position: relative;
@@ -5656,11 +5660,11 @@ small {
   white-space: nowrap;
   /*Custom Hike Score Styles */
 }
-/* line 29, ../sass/components/_tabs.scss */
+/* line 32, ../sass/components/_tabs.scss */
 .tabs .hide-tab {
   opacity: 0;
 }
-/* line 33, ../sass/components/_tabs.scss */
+/* line 36, ../sass/components/_tabs.scss */
 .tabs .tab {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
@@ -5680,7 +5684,7 @@ small {
   width: 15%;
   min-width: 80px;
 }
-/* line 52, ../sass/components/_tabs.scss */
+/* line 55, ../sass/components/_tabs.scss */
 .tabs .tab a {
   color: #50847B;
   display: block;
@@ -5690,16 +5694,16 @@ small {
   overflow: hidden;
   transition: color .28s ease;
 }
-/* line 60, ../sass/components/_tabs.scss */
+/* line 63, ../sass/components/_tabs.scss */
 .tabs .tab a:hover {
   color: #00daa8;
 }
-/* line 65, ../sass/components/_tabs.scss */
+/* line 68, ../sass/components/_tabs.scss */
 .tabs .tab.disabled a {
   color: #85b5ad;
   cursor: default;
 }
-/* line 70, ../sass/components/_tabs.scss */
+/* line 73, ../sass/components/_tabs.scss */
 .tabs .indicator {
   position: absolute;
   bottom: 0;
@@ -9620,38 +9624,6 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 #query a.btn.input-btn:hover, #query a.input-btn.btn-large:hover {
   color: #f5f5f5;
 }
-/* line 68, ../sass/components/_query.scss */
-#query .featured-locations {
-  width: 90%;
-}
-/* line 70, ../sass/components/_query.scss */
-#query .featured-locations .card-content {
-  position: relative;
-}
-/* line 72, ../sass/components/_query.scss */
-#query .featured-locations .card-content .progress {
-  position: absolute;
-  top: -10px;
-  right: 0;
-}
-/* line 77, ../sass/components/_query.scss */
-#query .featured-locations .card-content .score {
-  display: flex;
-  align-items: center;
-}
-/* line 78, ../sass/components/_query.scss */
-#query .featured-locations .card-content .score span {
-  margin-right: 10px;
-}
-/* line 84, ../sass/components/_query.scss */
-#query .featured-locations .card-content img {
-  height: 25px;
-  width: 25px;
-}
-/* line 89, ../sass/components/_query.scss */
-#query .featured-locations span {
-  font-size: .9rem;
-}
 
 /* line 2, ../sass/components/_results.scss */
 .results .container {
@@ -9728,6 +9700,39 @@ to prevent collapsing during animation*/
   -webkit-transform: translate3d(100px, 0, 0);
   -moz-transform: translate3d(100px, 0, 0);
   transform: translate3d(100px, 0, 0);
+}
+
+/* line 1, ../sass/components/_featured-locations.scss */
+.featured-locations {
+  width: 90%;
+}
+/* line 3, ../sass/components/_featured-locations.scss */
+.featured-locations .card-content {
+  position: relative;
+}
+/* line 5, ../sass/components/_featured-locations.scss */
+.featured-locations .card-content .progress {
+  position: absolute;
+  top: -10px;
+  right: 0;
+}
+/* line 10, ../sass/components/_featured-locations.scss */
+.featured-locations .card-content .score {
+  display: flex;
+  align-items: center;
+}
+/* line 11, ../sass/components/_featured-locations.scss */
+.featured-locations .card-content .score span {
+  margin-right: 10px;
+}
+/* line 17, ../sass/components/_featured-locations.scss */
+.featured-locations .card-content img {
+  height: 25px;
+  width: 25px;
+}
+/* line 22, ../sass/components/_featured-locations.scss */
+.featured-locations span {
+  font-size: .9rem;
 }
 
 /* line 1, ../sass/components/_masonry.scss */

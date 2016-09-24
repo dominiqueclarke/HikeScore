@@ -1,32 +1,39 @@
 angular.module('HikeScore')
 .service('zipcodeService', function($http) {
-  var zipcodeBaseUrl = 'https://maps.googleapis.com/maps/api/geocode/json?address='
-  var zipcodeKey = '&key=AIzaSyDXJ8TQvl3DT2HNEx0YY3WehdtMlKdXUYI'
+  const zipcodeBaseUrl = 'https://maps.googleapis.com/maps/api/geocode/json?address='
+  const zipcodeComponents = '&components=postal_code:'
+  const zipcodeKey = '&key=AIzaSyDXJ8TQvl3DT2HNEx0YY3WehdtMlKdXUYI'
 
   this.validateZip = zip => {
     const validatedZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(zip);
     if(!validatedZip) {
       //using the scope of the input to reassign ng-model to give user feedback on query
       var scope = angular.element('input').scope();
-      scope.zipcodeInput = "Please enter a valid zipcode";
+      if(scope) {
+        scope.zipcodeInput = "Please enter a valid zipcode";
+      }
+      return false;
     }
     return validatedZip;
   }
 
   this.getZipcodeData = function(zip) {
+      //console.log(zipcodeBaseUrl + zip + zipcodeComponents + zip + '&sensor=true' + zipcodeKey);
       return $http({
-        url: zipcodeBaseUrl + zip + '&sensor=true' + zipcodeKey
+        url: zipcodeBaseUrl + zip + zipcodeComponents + zip + '&sensor=true' + zipcodeKey
         , type: 'GET'
       }).then(function(results){
-        console.log(results);
-        var geoData = {}
-        geoData.zip = zip;
-        geoData.lat = results.data.results[0].geometry.location.lat;
-        geoData.lon = results.data.results[0].geometry.location.lng;
-        var address = results.data.results[0].formatted_address;
-        geoData.address = address.slice(0, address.indexOf(zip)).trim();
-        geoData.city = address.slice(0, address.indexOf(zip)).trim()//parse the data down to just the city and state
-        return geoData;
+          if(results.data.status === "ZERO_RESULTS") {
+            return false;
+          }
+          const geoData = {}
+          geoData.zip = zip;
+          geoData.lat = results.data.results[0].geometry.location.lat;
+          geoData.lon = results.data.results[0].geometry.location.lng;
+          const address = results.data.results[0].formatted_address;
+          geoData.address = address.slice(0, address.indexOf(zip)).trim();
+          geoData.city = address.slice(0, address.indexOf(zip)).trim()//parse the data down to just the city and state
+          return geoData;
       })
    }
   this.getDistance = function(start, end) {

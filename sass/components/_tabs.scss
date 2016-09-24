@@ -1,6 +1,9 @@
 /* Custom Hike Score tab styles */
 .activity-tabs-container {
   position:relative;
+  .indicator {
+    z-index:3
+  }
   .activity-search {
     position:absolute;
     height:48px;

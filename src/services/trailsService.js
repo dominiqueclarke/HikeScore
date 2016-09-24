@@ -39,7 +39,6 @@ const trailsKey = 'XYN4UCKBuGmshhnBDXLJYjLJZMwKp1DdwaIjsnFjsSATwnxYuK'
 this.getTrailData = (geoData) => {
   const latStr = 'lat=' + geoData.lat;
   const lonStr = 'lon=' + geoData.lon;
-  console.log(trailsBaseUrl + latStr + '&' + lonStr);
   return $http({
     url: trailsBaseUrl + latStr + '&' + lonStr // The URL to the API. You can get this in the API page of the API you intend to consume
     , type: 'GET'
@@ -52,17 +51,18 @@ this.getTrailData = (geoData) => {
     //format data
     for(let plc in places) {
       const place = places[plc];
+      //console.log(place);
       //don't display activities that don't have a length
       getDisplayProperty(place);
       //calculate distance from zipcode
       getDistance(place, geoData);
 
       for(let actv in place.activities) {
-
         const activity = place.activities[actv];
-
         //Registering if a location contains a certain activity
-        registerActivities(activity);
+        if(!rating.hiking || !rating.biking || !rating.camping || !rating.snow) {
+          registerActivities(activity);
+        }
         //creating thumbnails for activities that don't have them
         addThumbnails(activity);
         //deleting length property for hiking and snow sports. doesn't make sense
@@ -119,24 +119,17 @@ function getDistance(place, geoData) {
 };
 
 function registerActivities(activity) {
-  var i = 0;
-  while(i <= 4) {
-    if(activity.activity_type_name === 'hiking') {
-      rating.hiking = true;
-      i++;
-    }
-    if(activity.activity_type_name === 'mountain biking') {
-      rating.biking = true;
-      i++;
-    }
-    if(activity.activity_type_name === 'camping') {
-      rating.camping = true;
-      i++;
-    }
-    if(activity.activity_type_name === 'snow sports') {
-      rating.snow = true;
-      i++;
-    }
+  if(activity.activity_type_name === 'hiking') {
+    rating.hiking = true;
+  }
+  else if(activity.activity_type_name === 'mountain biking') {
+    rating.biking = true;
+  }
+  else if(activity.activity_type_name === 'camping') {
+    rating.camping = true;
+  }
+  else if(activity.activity_type_name === 'snow sports') {
+    rating.snow = true;
   }
 };
 

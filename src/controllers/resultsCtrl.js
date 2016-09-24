@@ -4,28 +4,33 @@ angular.module('HikeScore')
     $scope.filterActivity = function(activity) {
         $scope.activityFilter = activity;
     };
-    console.log($stateParams.zip);
     //put a zip code check in place
     //put a status check into zip code service for google
     if($stateParams.zip !== null) {
       if($stateParams.places === null) {
-        const zip = $stateParams.zip;
-        const validatedZip = zipcodeService.validateZip(zip);
+        const zip = $scope.zip = $stateParams.zip;
+        const validatedZip = $scope.validatedZip = zipcodeService.validateZip(zip);
+        //console.log(validatedZip);
         if(validatedZip) {
           zipcodeService.getZipcodeData(zip) //using the zip to get the lat and lon
           .then(function(geoData) {
               //$scope.geoData = geoData; //placing the geoData on the scope so we can use it to alert the user of their location
               //$scope.geoData.zip = geoData.zip;
-              $scope.city = geoData.address;
-              //fetching trail data
-              trailsService.getTrailData(geoData)
-              .then(function(places) {
-                //flattening the Array
-                $scope.activities = trailsService.getActivitiesArray();
-                $scope.places = places;
-                //get rating
-                $scope.rating = trailsService.getRating();
-              });
+              if(!geoData) {
+                $scope.validatedZip = false;
+              }
+              else {
+                $scope.city = geoData.address;
+                //fetching trail data
+                trailsService.getTrailData(geoData)
+                .then(function(places) {
+                  //flattening the Array
+                  $scope.activities = trailsService.getActivitiesArray();
+                  $scope.places = places;
+                  //get rating
+                  $scope.rating = trailsService.getRating();
+                });
+              }
           });
         };
       }

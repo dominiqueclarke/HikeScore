@@ -1,5 +1,12 @@
 <div class="results">
   <query></query>
+  <div ng-if="!validatedZip && !places">
+    <div class="center-align">
+      <h2>Sorry, {{zip}} is not a valid zipcode</h2>
+      <h3>Please enter a valid zipcode, or check out our featured locations</h3>
+    </div>
+    <featured-locations state-ref="stateRef"></featured-locations>
+  </div>
   <div ng-if="places">
     <div class="mapbox row">
       <div class="col s12">
