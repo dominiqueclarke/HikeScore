@@ -1,37 +1,39 @@
 <div class="results">
   <query></query>
-  <div class="mapbox row">
-    <div class="col s12">
-      <h3 class="center-align">{{city}} is <span class="rating">{{rating.textRating}}</span> hike-able</h3>
-      <div ng-if="rating.numberRating" class="center-align location-score">
-        <span>HikeScore: </span>
-        <img style="height:50px; width:50px" src="img/icons/hike-score-logo.png"
-          ng-repeat="i in createRatingRepeat(rating.numberRating) track by $index"
-          ng-show="rating.numberRating"
-          class="ng-hide"/>
-      </div>
-      <mapbox places="places" geo-data="geoData" geo-json="geoJson"></mapbox>
-    </div>
-  </div>
-  <div class="activities container">
-    <h3 class="center-align">Nearby Adventures</h3>
-    <div class="row activity-tabs-container">
-        <div class="col s12">
-            <ul tabs reload="allTabContentLoaded" class="activity-tabs">
-                <li ng-if="rating.hiking" ng-class="{false: 'show-tab', true: 'hide-tab'}[hideTabs]" ng-click="filterActivity('hiking')" class="tab col s3"><a href="#">Hiking</a></li>
-                <li ng-if="rating.biking" ng-class="{false: 'show-tab', true: 'hide-tab'}[hideTabs]" ng-click="filterActivity('mountain biking')" class="tab col s3"><a href="#">Mountain Biking</a></li>
-                <li ng-if="rating.camping" ng-class="{false: 'show-tab', true: 'hide-tab'}[hideTabs]" ng-click="filterActivity('camping')" class="tab col s3"><a href="#">Camping</a></li>
-                <li ng-if="rating.snow" ng-class="{false: 'show-tab', true: 'hide-tab'}[hideTabs]" ng-click="filterActivity('snow sports');" class="tab col s3"><a href="#">Snow Sports</a></li>
-                <li ng-click="hideTabs = !hideTabs; filterActivity('')" class="tab col s3"><a href="#">Search</a></li>
-            </ul>
-            <input ng-model="search" ng-show="hideTabs" type="text" class="ng-hide col s9 activity-search"></input>
+  <div ng-if="places">
+    <div class="mapbox row">
+      <div class="col s12">
+        <h3 class="center-align">{{city}} is <span class="rating">{{rating.textRating}}</span> hike-able</h3>
+        <div ng-if="rating.numberRating" class="center-align location-score">
+          <span>HikeScore: </span>
+          <img style="height:50px; width:50px" src="img/icons/hike-score-logo.png"
+            ng-repeat="i in createRatingRepeat(rating.numberRating) track by $index"
+            ng-show="rating.numberRating"
+            class="ng-hide"/>
         </div>
+        <mapbox places="places" geo-data="geoData" geo-json="geoJson"></mapbox>
+      </div>
     </div>
-    <div class="row mason-grid" masonry='{ "transitionDuration" : "0.1s" , "itemSelector" : ".activity-card", "columnWidth": ".grid-sizer", "gutter": ".gutter-sizer", "percentPosition": "true"}' column-width="200" data-load-images="true" preserve-order>
-      <div class="grid-sizer"></div>
-      <div class="gutter-sizer"></div>
-      <div class="masonry-tile activity-card" ng-if="activity.display" ng-repeat="activity in activities | filter: search | filter: { activity_type_name: activityFilter }">
-        <activity-card activity="activity"></activity-card>
+    <div class="activities container">
+      <h3 class="center-align">Nearby Adventures</h3>
+      <div class="row activity-tabs-container">
+          <div class="col s12">
+              <ul tabs reload="allTabContentLoaded" class="activity-tabs">
+                  <li ng-if="rating.hiking" ng-class="{false: 'show-tab', true: 'hide-tab'}[hideTabs]" ng-click="filterActivity('hiking')" class="tab col s3"><a href="#">Hiking</a></li>
+                  <li ng-if="rating.biking" ng-class="{false: 'show-tab', true: 'hide-tab'}[hideTabs]" ng-click="filterActivity('mountain biking')" class="tab col s3"><a href="#">Mountain Biking</a></li>
+                  <li ng-if="rating.camping" ng-class="{false: 'show-tab', true: 'hide-tab'}[hideTabs]" ng-click="filterActivity('camping')" class="tab col s3"><a href="#">Camping</a></li>
+                  <li ng-if="rating.snow" ng-class="{false: 'show-tab', true: 'hide-tab'}[hideTabs]" ng-click="filterActivity('snow sports');" class="tab col s3"><a href="#">Snow Sports</a></li>
+                  <li ng-click="hideTabs = !hideTabs; filterActivity('')" class="tab col s3"><a href="#">Search</a></li>
+              </ul>
+              <input ng-model="search" ng-show="hideTabs" type="text" class="ng-hide col s9 activity-search"></input>
+          </div>
+      </div>
+      <div class="row mason-grid" masonry='{ "transitionDuration" : "0.1s" , "itemSelector" : ".activity-card", "columnWidth": ".grid-sizer", "gutter": ".gutter-sizer", "percentPosition": "true"}' column-width="200" data-load-images="true" preserve-order>
+        <div class="grid-sizer"></div>
+        <div class="gutter-sizer"></div>
+        <div class="masonry-tile activity-card" ng-if="activity.display" ng-repeat="activity in activities | filter: search | filter: { activity_type_name: activityFilter }">
+          <activity-card activity="activity"></activity-card>
+        </div>
       </div>
     </div>
   </div>

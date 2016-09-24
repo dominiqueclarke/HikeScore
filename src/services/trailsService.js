@@ -36,9 +36,9 @@ this.getActivitiesArray = () => {
 const trailsBaseUrl = 'https://trailapi-trailapi.p.mashape.com/?radius=25&';
 const trailsKey = 'XYN4UCKBuGmshhnBDXLJYjLJZMwKp1DdwaIjsnFjsSATwnxYuK'
 
-this.getTrailData = (lat, lon, geoData) => {
-  const latStr = 'lat=' + lat;
-  const lonStr = 'lon=' + lon;
+this.getTrailData = (geoData) => {
+  const latStr = 'lat=' + geoData.lat;
+  const lonStr = 'lon=' + geoData.lon;
   console.log(trailsBaseUrl + latStr + '&' + lonStr);
   return $http({
     url: trailsBaseUrl + latStr + '&' + lonStr // The URL to the API. You can get this in the API page of the API you intend to consume
@@ -50,16 +50,16 @@ this.getTrailData = (lat, lon, geoData) => {
     //assign rating
     getRating(places);
     //format data
-    for(let place in places) {
-
+    for(let plc in places) {
+      const place = places[plc];
       //don't display activities that don't have a length
-      getDisplayProperty(places[place]);
+      getDisplayProperty(place);
       //calculate distance from zipcode
-      getDistance(places[place], geoData);
+      getDistance(place, geoData);
 
-      for(let actv in places[place].activities) {
+      for(let actv in place.activities) {
 
-        const activity = places[place].activities[actv];
+        const activity = place.activities[actv];
 
         //Registering if a location contains a certain activity
         registerActivities(activity);
@@ -71,6 +71,8 @@ this.getTrailData = (lat, lon, geoData) => {
         formatActivityLength(activity);
       }
     }
+    //sorting activities by distance
+    orderByDistance(places);
     return places;
   });
 }
@@ -164,6 +166,13 @@ function formatActivityLength(activity) {
       activity.length = "Less than a mile long";
     }
   }
+}
+
+function orderByDistance(places) {
+  places.sort((a, b) => {
+    return a.distance - b.distance;
+  });
+  return places;
 }
 
 function getRandomInt(min, max) {

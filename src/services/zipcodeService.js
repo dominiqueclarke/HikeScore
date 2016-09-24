@@ -1,9 +1,17 @@
 angular.module('HikeScore')
 .service('zipcodeService', function($http) {
   var zipcodeBaseUrl = 'https://maps.googleapis.com/maps/api/geocode/json?address='
-  var distanceBaseUrl = 'https://maps.googleapis.com/maps/api/distancematrix/json?'
   var zipcodeKey = '&key=AIzaSyDXJ8TQvl3DT2HNEx0YY3WehdtMlKdXUYI'
-  var distanceKey = '&key=AIzaSyA60Ws5uiRuszS8MfGBe7cW_3E1rOBV6bY'
+
+  this.validateZip = zip => {
+    const validatedZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(zip);
+    if(!validatedZip) {
+      //using the scope of the input to reassign ng-model to give user feedback on query
+      var scope = angular.element('input').scope();
+      scope.zipcodeInput = "Please enter a valid zipcode";
+    }
+    return validatedZip;
+  }
 
   this.getZipcodeData = function(zip) {
       return $http({
