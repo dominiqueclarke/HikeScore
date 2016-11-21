@@ -1,58 +1,62 @@
 <div id="query">
-  <div ui-sref="home" class="brand grey-text text-lighten-4"><h3>HikeScore</h3><img src="img/icons/hike-score-logo.png" alt="HikeScore"/></div>
-  <div ng-if="stateRef === 'results'" ng-class="'state-' + stateRef">
-    <div class="row center teal lighten-1">
-      <div class="col s12 m9 right query-container">
-        <div class="input-container col s7">
-          <input
-            ng-model="zipcodeInput"
-            class="landing-prompt grey-text text-lighten-4"
-            type="text"
-            pattern="[0-9]*"
-            maxlength="5"
-            placeholder="SEARCH A NEW AREA"
-            required name="zip"
-            id="zip">
-          </input>
-          <div ng-if="clicked && validatedZip" class="progress">
-              <div class="indeterminate"></div>
-          </div>
-        </div>
-        <a ng-click="getTrailData(zipcodeInput); clicked = true" class="col s4 btn-large waves-effect waves-light teal-text text-lighten-1 right">Find Hikes</a>
-      </div>
-    </div>
-  </div>
-  <div ng-if="stateRef === 'home'">
-    <div id="index-banner" class="parallax-container grey-text text-lighten-4">
-      <div class="section no-pad-bot">
-        <div class="container">
-          <br>
-          <h1 class="header center">Take a HIKE</h1>
-          <div class="row center">
-            <h5 class="header col s12 light">Discover how hike-able your neighborhood is</h5>
-          </div>
-          <div class="row center">
-            <div class="input-container">
-              <input
-                ng-model="zipcodeInput"
-                class="landing-prompt"
-                type="text"
-                pattern="[0-9]*"
-                maxlength="5"
-                required name="zip"
-                placeholder="{{placeholder}}"
-                id="zip">
-              </input>
-              <div ng-if="geoData.address" class="progress">
-                  <div class="indeterminate"></div>
-              </div>
+    <div ui-sref="home" class="brand grey-text text-lighten-4">
+        <h3>HikeScore</h3><img src="img/icons/hike-score-logo.png" alt="HikeScore" /></div>
+    <div ng-if="stateRef === 'results'" ng-class="'state-' + stateRef">
+        <div class="row center teal lighten-1">
+            <div class="col s12 m9 right query-container">
+                <div class="input-container col s7">
+                    <input
+                        ng-model="zipcodeInput"
+                        class="landing-prompt grey-text text-lighten-4"
+                        type="text"
+                        pattern="[0-9]*"
+                        maxlength="5"
+                        placeholder="SEARCH A NEW AREA"
+                        required name="zip"
+                        id="zip">
+                    </input>
+                    <div
+                        ng-if="clicked && validatedZip"
+                        class="progress">
+                        <div class="indeterminate"></div>
+                    </div>
+                </div>
+                <a
+                    ng-click="getTrailData(zipcodeInput); clicked = true"
+                    class="col s4 btn-large waves-effect waves-light teal-text text-lighten-1 right">
+                    Find Hikes
+                </a>
             </div>
-            <a ng-click="getTrailData(zipcodeInput)" class="gradient-btn"><span>Find Hikes</span></a>
-          </div>
-          <br><br>
         </div>
-      </div>
-      <div parallax><img src="img/hikescore-bg-3.jpeg" alt="Find hikes in your area"></div>
     </div>
-  </div>
+    <div ng-if="stateRef === 'home'">
+        <div id="index-banner" class="parallax-container grey-text text-lighten-4">
+            <div class="section no-pad-bot">
+                <div class="container">
+                    <br>
+                    <h1 class="header center">Take a HIKE</h1>
+                    <div class="row center">
+                        <h5 class="header col s12 light">Discover how hike-able your neighborhood is</h5>
+                    </div>
+                    <div class="row center">
+                        <div class="input-container">
+                            <input ng-model="zipcodeInput" class="landing-prompt" type="text" pattern="[0-9]*" maxlength="5" required name="zip" placeholder="{{placeholder}}" id="zip">
+                            </input>
+                            <div ng-if="geoData.address" class="progress">
+                                <div class="indeterminate"></div>
+                            </div>
+                        </div>
+                        <a
+                            ng-click="getTrailData(zipcodeInput)"
+                            class="gradient-btn">
+                            <span>Find Hikes</span>
+                        </a>
+                   </div>
+                </div>
+            </div>
+            <div parallax>
+                <img src="img/hikescore-bg-3.jpeg" alt="Find hikes in your area">
+            </div>
+        </div>
+    </div>
 </div>

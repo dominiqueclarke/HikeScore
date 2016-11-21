@@ -1,20 +1,20 @@
 <div class="card">
-  <div class="card-image">
-    <img ng-src="{{activity.thumbnail}}" alt="{{activity.name}}"/>
-    <span class="card-title background"><h5>{{activity.name }} {{activity.activity_type_name}}</h5></span>
-  </div>
-  <div class="card-content">
-    <p>{{activity.placeCity}}, {{activity.placeState}}</p>
-    <p>{{activity.placeDistance}}</p>
-    <p>{{activity.length}}</p>
-    <a class="activator" href="">More Info</a>
-  </div>
-  <div class="card-reveal">
-    <span class="card-title hike-score-green-text text-lighten-1">
-      {{activity.name}} {{activity.activity_type_name}}
-      <i class="material-icons right">close</i>
-    </span>
-    <p ng-bind-html="activity.description | to_trusted"></p>
-    <a href={{activity.url}} target="_blank">Let's go!</p>
-  </div>
+    <div class="card-image">
+        <img ng-src="{{activity.thumbnail}}" alt="{{activity.name}}"/>
+        <span class="card-title background"><h5>{{activity.name }} {{activity.activity_type_name}}</h5></span>
+    </div>
+    <div class="card-content">
+        <p>{{activity.placeCity}}, {{activity.placeState}}</p>
+        <p>{{activity.placeDistance}}</p>
+        <p>{{activity.length}}</p>
+        <a class="activator" href="">More Info</a>
+    </div>
+    <div class="card-reveal">
+        <span class="card-title hike-score-green-text text-lighten-1">
+            {{activity.name}} {{activity.activity_type_name}}
+            <i class="material-icons right">close</i>
+        </span>
+        <p ng-bind-html="activity.description | to_trusted"></p>
+        <a href={{activity.url}} target="_blank">Let's go!</p>
+    </div>
 </div>
