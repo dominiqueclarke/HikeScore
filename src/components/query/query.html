@@ -1,23 +1,24 @@
 <div id="query">
-  <div ui-sref="home" class="brand grey-text text-lighten-4"><h3>HikeScore</h3><img src="img/icons/hikescore-logo.png" alt="HikeScore"/></div>
+  <div ui-sref="home" class="brand grey-text text-lighten-4"><h3>HikeScore</h3><img src="img/icons/hike-score-logo.png" alt="HikeScore"/></div>
   <div ng-if="stateRef === 'results'" ng-class="'state-' + stateRef">
     <div class="row center teal lighten-1">
-      <div class="col s9 right query-container">
-        <div class="input-container col s8">
+      <div class="col s12 m9 right query-container">
+        <div class="input-container col s7">
           <input
             ng-model="zipcodeInput"
             class="landing-prompt grey-text text-lighten-4"
             type="text"
             pattern="[0-9]*"
             maxlength="5"
+            placeholder="SEARCH A NEW AREA"
             required name="zip"
             id="zip">
           </input>
-          <div ng-if="geoData.address" class="progress">
+          <div ng-if="clicked && validatedZip" class="progress">
               <div class="indeterminate"></div>
           </div>
         </div>
-        <a ng-click="getTrailData(zipcodeInput)" class="col s3 btn-large waves-effect waves-light teal-text text-lighten-1 right">Get Started</a>
+        <a ng-click="getTrailData(zipcodeInput); clicked = true" class="col s4 btn-large waves-effect waves-light teal-text text-lighten-1 right">Find Hikes</a>
       </div>
     </div>
   </div>
@@ -46,31 +47,12 @@
                   <div class="indeterminate"></div>
               </div>
             </div>
-            <a ng-click="getTrailData(zipcodeInput)" class="input-btn btn-large waves-effect waves-light teal lighten-1">Get Started</a>
+            <a ng-click="getTrailData(zipcodeInput)" class="gradient-btn"><span>Find Hikes</span></a>
           </div>
           <br><br>
         </div>
       </div>
-      <div parallax><img src="img/hikescore-bg2.jpeg" alt="Unsplashed background img 1"></div>
-    </div>
-    <div class="featured-locations container row">
-      <h3>Featured Locations</h3>
-      <div ng-repeat="location in featuredLocations" class="col s12 l4">
-        <div class="card">
-          <div class="card-image">
-            <img ng-src="{{location.thumbnail}}" alt="{{location.name}}"/>
-            <span class="card-title background"><h5>{{location.name}}</h5></span>
-          </div>
-          <div class="card-content">
-            <div class="score">
-              <span>HikeScore: </span>
-              <img ng-src="img/icons/hikescore-logo.png"
-                ng-repeat="i in createRatingRepeat(location.rating) track by $index"/>
-            </div>
-            <p><a href="" ng-click="getTrailData(location.zip)">Discover hikes in {{location.name}}</a></p>
-          </div>
-        </div>
-      </div>
+      <div parallax><img src="img/hikescore-bg-3.jpeg" alt="Find hikes in your area"></div>
     </div>
   </div>
 </div>

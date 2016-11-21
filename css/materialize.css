@@ -5629,22 +5629,26 @@ small {
   position: relative;
 }
 /* line 4, ../sass/components/_tabs.scss */
+.activity-tabs-container .indicator {
+  z-index: 3;
+}
+/* line 7, ../sass/components/_tabs.scss */
 .activity-tabs-container .activity-search {
   position: absolute;
   height: 48px;
   top: 0;
   z-index: 2;
 }
-/* line 10, ../sass/components/_tabs.scss */
+/* line 13, ../sass/components/_tabs.scss */
 .activity-tabs-container input.activity-search {
   border-bottom: 1px solid #d1d1d1;
 }
-/* line 12, ../sass/components/_tabs.scss */
+/* line 15, ../sass/components/_tabs.scss */
 .activity-tabs-container input.activity-search:focus:not([readonly]) {
   border-bottom: 2px solid #44d4c7;
 }
 
-/* line 18, ../sass/components/_tabs.scss */
+/* line 21, ../sass/components/_tabs.scss */
 .tabs {
   display: flex;
   position: relative;
@@ -5656,11 +5660,11 @@ small {
   white-space: nowrap;
   /*Custom Hike Score Styles */
 }
-/* line 29, ../sass/components/_tabs.scss */
+/* line 32, ../sass/components/_tabs.scss */
 .tabs .hide-tab {
   opacity: 0;
 }
-/* line 33, ../sass/components/_tabs.scss */
+/* line 36, ../sass/components/_tabs.scss */
 .tabs .tab {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
@@ -5680,7 +5684,7 @@ small {
   width: 15%;
   min-width: 80px;
 }
-/* line 52, ../sass/components/_tabs.scss */
+/* line 55, ../sass/components/_tabs.scss */
 .tabs .tab a {
   color: #50847B;
   display: block;
@@ -5690,16 +5694,16 @@ small {
   overflow: hidden;
   transition: color .28s ease;
 }
-/* line 60, ../sass/components/_tabs.scss */
+/* line 63, ../sass/components/_tabs.scss */
 .tabs .tab a:hover {
   color: #00daa8;
 }
-/* line 65, ../sass/components/_tabs.scss */
+/* line 68, ../sass/components/_tabs.scss */
 .tabs .tab.disabled a {
   color: #85b5ad;
   cursor: default;
 }
-/* line 70, ../sass/components/_tabs.scss */
+/* line 73, ../sass/components/_tabs.scss */
 .tabs .indicator {
   position: absolute;
   bottom: 0;
@@ -9500,30 +9504,37 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 #map-container #map {
   width: 58.333%;
   height: 100%;
+  padding-left: 0;
 }
-/* line 16, ../sass/components/_mapbox.scss */
+/* line 17, ../sass/components/_mapbox.scss */
 #map-container #place-content {
   height: 100%;
   overflow: scroll;
 }
-/* line 20, ../sass/components/_mapbox.scss */
+/* line 21, ../sass/components/_mapbox.scss */
 #map-container #place-content .map-activity-icon img {
   height: 30px;
   width: 30px;
 }
-/* line 25, ../sass/components/_mapbox.scss */
+/* line 26, ../sass/components/_mapbox.scss */
 #map-container #place-content .filter-activity-prompt {
   margin-left: 20px;
 }
-/* line 28, ../sass/components/_mapbox.scss */
+@media only screen and (max-width: 992px) {
+  /* line 26, ../sass/components/_mapbox.scss */
+  #map-container #place-content .filter-activity-prompt {
+    display: none;
+  }
+}
+/* line 32, ../sass/components/_mapbox.scss */
 #map-container #place-content .selected-activity {
   clear: both;
 }
-/* line 30, ../sass/components/_mapbox.scss */
+/* line 34, ../sass/components/_mapbox.scss */
 #map-container #place-content .selected-activity .length {
   margin: 0 20px 0 0;
 }
-/* line 33, ../sass/components/_mapbox.scss */
+/* line 37, ../sass/components/_mapbox.scss */
 #map-container #place-content .selected-activity .description {
   clear: both;
 }
@@ -9552,85 +9563,330 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   font-weight: 400;
   margin-top: 60px;
 }
-/* line 23, ../sass/components/_query.scss */
+/* line 22, ../sass/components/_query.scss */
+#query h1, #query h5 {
+  text-shadow: 1px 1px 1px black;
+}
+/* line 26, ../sass/components/_query.scss */
 #query .state-results .query-container {
   margin: 20px 0;
 }
-/* line 25, ../sass/components/_query.scss */
+@media only screen and (max-width: 992px) {
+  /* line 26, ../sass/components/_query.scss */
+  #query .state-results .query-container {
+    margin: 80px 0 20px;
+  }
+}
+/* line 31, ../sass/components/_query.scss */
 #query .state-results .query-container .input-container {
   margin-left: 40px;
   padding: 0;
 }
-/* line 28, ../sass/components/_query.scss */
+/* line 34, ../sass/components/_query.scss */
 #query .state-results .query-container .input-container input {
   height: 54px;
 }
-/* line 30, ../sass/components/_query.scss */
+/* line 36, ../sass/components/_query.scss */
 #query .state-results .query-container .input-container input:focus:not([readonly]) {
   border-bottom: 1px solid #a7ffeb;
 }
-/* line 35, ../sass/components/_query.scss */
+@media only screen and (max-width: 992px) {
+  /* line 31, ../sass/components/_query.scss */
+  #query .state-results .query-container .input-container {
+    margin-left: 0;
+  }
+}
+/* line 44, ../sass/components/_query.scss */
 #query .state-results .query-container .btn, #query .state-results .query-container .btn-large {
   background-image: url("../img/topography.png");
   color: #26a69a;
 }
-/* line 41, ../sass/components/_query.scss */
+/* line 50, ../sass/components/_query.scss */
 #query .input-container {
   position: relative;
 }
-/* line 43, ../sass/components/_query.scss */
+/* line 52, ../sass/components/_query.scss */
 #query .input-container input {
   margin-bottom: 0;
 }
-/* line 46, ../sass/components/_query.scss */
+/* line 55, ../sass/components/_query.scss */
 #query .input-container .progress {
   margin-top: 0;
   position: absolute;
   bottom: -1px;
   margin-bottom: 0;
 }
-/* line 53, ../sass/components/_query.scss */
+/* line 62, ../sass/components/_query.scss */
 #query a.btn.input-btn, #query a.input-btn.btn-large {
   margin-top: 20px;
 }
-/* line 55, ../sass/components/_query.scss */
+/* line 64, ../sass/components/_query.scss */
 #query a.btn.input-btn:hover, #query a.input-btn.btn-large:hover {
   color: #f5f5f5;
 }
-/* line 61, ../sass/components/_query.scss */
-#query .featured-locations .card-content .score {
-  display: flex;
-  align-items: center;
-}
-/* line 62, ../sass/components/_query.scss */
-#query .featured-locations .card-content .score span {
-  margin-right: 10px;
-}
-/* line 68, ../sass/components/_query.scss */
-#query .featured-locations .card-content img {
-  height: 25px;
-  width: 25px;
-}
-/* line 73, ../sass/components/_query.scss */
-#query .featured-locations span {
-  font-size: .9rem;
-}
 
-/* line 1, ../sass/components/_results.scss */
-.location-score {
+/* line 2, ../sass/components/_results.scss */
+.results .container {
+  width: 95%;
+}
+/* line 5, ../sass/components/_results.scss */
+.results .location-score {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 20px;
 }
-/* line 6, ../sass/components/_results.scss */
-.location-score span {
+/* line 10, ../sass/components/_results.scss */
+.results .location-score span {
   margin-right: 20px;
   font-size: 1.5rem;
   font-family: 'Dosis', sans-serif;
 }
-/* line 11, ../sass/components/_results.scss */
-.location-score img {
+/* line 15, ../sass/components/_results.scss */
+.results .location-score img {
   height: 50px;
   width: 50px;
+}
+/* line 21, ../sass/components/_results.scss */
+.results .activity-tabs-container .col {
+  padding: 0;
+}
+
+/* Have to set height explicity on ui-view
+to prevent collapsing during animation*/
+/* line 3, ../sass/components/_view-transitions.scss */
+.ui-view-container {
+  min-height: 150vh;
+}
+
+/* line 7, ../sass/components/_view-transitions.scss */
+[ui-view].ng-enter, [ui-view].ng-leave {
+  position: absolute;
+  left: 0;
+  right: 0;
+  -webkit-transition: all .5s ease-in-out;
+  -moz-transition: all .5s ease-in-out;
+  -o-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+}
+
+/* line 17, ../sass/components/_view-transitions.scss */
+[ui-view].ng-enter {
+  opacity: 0;
+  -webkit-transform: scale3d(0.5, 0.5, 0.5);
+  -moz-transform: scale3d(0.5, 0.5, 0.5);
+  transform: scale3d(0.5, 0.5, 0.5);
+}
+
+/* line 24, ../sass/components/_view-transitions.scss */
+[ui-view].ng-enter-active {
+  opacity: 1;
+  -webkit-transform: scale3d(1, 1, 1);
+  -moz-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+}
+
+/* line 31, ../sass/components/_view-transitions.scss */
+[ui-view].ng-leave {
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+/* line 38, ../sass/components/_view-transitions.scss */
+[ui-view].ng-leave-active {
+  opacity: 0;
+  -webkit-transform: translate3d(100px, 0, 0);
+  -moz-transform: translate3d(100px, 0, 0);
+  transform: translate3d(100px, 0, 0);
+}
+
+/* line 1, ../sass/components/_featured-locations.scss */
+.featured-locations {
+  width: 90%;
+}
+/* line 3, ../sass/components/_featured-locations.scss */
+.featured-locations .card-content {
+  position: relative;
+}
+/* line 5, ../sass/components/_featured-locations.scss */
+.featured-locations .card-content .progress {
+  position: absolute;
+  top: -10px;
+  right: 0;
+}
+/* line 10, ../sass/components/_featured-locations.scss */
+.featured-locations .card-content .score {
+  display: flex;
+  align-items: center;
+}
+/* line 11, ../sass/components/_featured-locations.scss */
+.featured-locations .card-content .score span {
+  margin-right: 10px;
+}
+/* line 17, ../sass/components/_featured-locations.scss */
+.featured-locations .card-content img {
+  height: 25px;
+  width: 25px;
+}
+/* line 22, ../sass/components/_featured-locations.scss */
+.featured-locations span {
+  font-size: .9rem;
+}
+
+/* line 1, ../sass/components/_masonry.scss */
+.activity-card {
+  width: 32%;
+  box-sizing: border-box;
+  color: #aaa;
+  font-size: 13px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  margin-bottom: 1rem;
+}
+
+/* line 15, ../sass/components/_masonry.scss */
+.mason-grid {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  transition: height .7s ease-out;
+}
+
+/* line 30, ../sass/components/_masonry.scss */
+.grid-sizer {
+  width: 32%;
+  box-sizing: border-box;
+  cursor: pointer;
+  color: #aaa;
+  font-size: 13px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  margin-bottom: 1rem;
+}
+
+/* line 45, ../sass/components/_masonry.scss */
+.gutter-sizer {
+  width: 2%;
+}
+
+@media only screen and (max-width: 992px) {
+  /* line 50, ../sass/components/_masonry.scss */
+  .grid-sizer, .activity-card {
+    width: 49%;
+    left: auto;
+    right: auto;
+  }
+
+  /* line 55, ../sass/components/_masonry.scss */
+  .mason-grid {
+    width: 98%;
+    margin-left: 3px !important;
+  }
+}
+@media only screen and (max-width: 600px) {
+  /* line 62, ../sass/components/_masonry.scss */
+  .grid-sizer, .activity-card {
+    width: 100%;
+    left: auto;
+    right: auto;
+  }
+}
+/* line 104, ../sass/components/_masonry.scss */
+.gradient-btn {
+  cursor: pointer;
+  display: block;
+  width: 150px;
+  height: 40px;
+  z-index: 1;
+}
+/* line 113, ../sass/components/_masonry.scss */
+.gradient-btn:after {
+  content: '';
+  background: linear-gradient(120deg, #4db6ac, #009688, #4db6ac);
+  background-size: 400% 400%;
+  -moz-animation: gradient 3s ease-in-out infinite, border 1s forwards ease-in-out reverse;
+  -webkit-animation: gradient 3s ease-in-out infinite, border 1s forwards ease-in-out reverse;
+  animation: gradient 3s ease-in-out infinite, border 1s forwards ease-in-out reverse;
+}
+/* line 120, ../sass/components/_masonry.scss */
+.gradient-btn > span {
+  border-radius: 3px;
+  display: block;
+  background: linear-gradient(120deg, #4db6ac, #009688, #4db6ac);
+  background-size: 400% 400%;
+  -webkit-text-fill-color: #f5f5f5;
+  -moz-animation: gradient 3s ease-in-out infinite;
+  -webkit-animation: gradient 3s ease-in-out infinite;
+  animation: gradient 3s ease-in-out infinite;
+}
+
+/* helpers */
+/* line 132, ../sass/components/_masonry.scss */
+.absolute-centering, .gradient-btn {
+  margin: auto;
+  padding-top: 20px;
+}
+
+/* line 137, ../sass/components/_masonry.scss */
+.text-formatting, .gradient-btn {
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  letter-spacing: 2px;
+  line-height: 60px;
+  font-family: 'Open Sans';
+  font-size: 1.2rem;
+}
+
+/* motion */
+@-moz-keyframes gradient {
+  0% {
+    background-position: 14% 0%;
+  }
+  50% {
+    background-position: 87% 100%;
+  }
+  100% {
+    background-position: 14% 0%;
+  }
+}
+@-webkit-keyframes gradient {
+  0% {
+    background-position: 14% 0%;
+  }
+  50% {
+    background-position: 87% 100%;
+  }
+  100% {
+    background-position: 14% 0%;
+  }
+}
+@keyframes gradient {
+  0% {
+    background-position: 14% 0%;
+  }
+  50% {
+    background-position: 87% 100%;
+  }
+  100% {
+    background-position: 14% 0%;
+  }
 }

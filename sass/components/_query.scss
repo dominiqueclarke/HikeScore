@@ -19,9 +19,15 @@
     font-weight:400;
     margin-top:60px;
   }
+  h1, h5 {
+    text-shadow:1px 1px 1px black;
+  }
   .state-results {
     .query-container {
       margin:20px 0;
+      @media #{$medium-and-down} {
+        margin:80px 0 20px;
+      }
       .input-container {
         margin-left: 40px;
         padding:0;
@@ -30,6 +36,9 @@
           &:focus:not([readonly]) {
             border-bottom: 1px solid $accent-color;
           }
+        }
+        @media #{$medium-and-down} {
+          margin-left:0;
         }
       }
       .btn {
@@ -54,24 +63,6 @@
     margin-top:20px;
     &:hover {
       color:$white-color;
-    }
-  }
-  .featured-locations {
-    .card-content {
-      .score {
-        span {
-          margin-right:10px;
-        }
-        display:flex;
-        align-items:center;
-      }
-      img {
-        height:25px;
-        width:25px;
-      }
-    }
-    span {
-      font-size:.9rem;
     }
   }
 }

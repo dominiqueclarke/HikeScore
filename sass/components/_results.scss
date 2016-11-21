@@ -1,15 +1,25 @@
-.location-score {
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  margin-bottom:20px;
-  span {
-    margin-right:20px;
-    font-size:1.5rem;
-    font-family:'Dosis', sans-serif;
+.results {
+  .container {
+    width:95%;
   }
-  img {
-    height:50px;
-    width:50px;
+  .location-score {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-bottom:20px;
+    span {
+      margin-right:20px;
+      font-size:1.5rem;
+      font-family:'Dosis', sans-serif;
+    }
+    img {
+      height:50px;
+      width:50px;
+    }
+  }
+  .activity-tabs-container {
+    .col {
+      padding:0;
+    }
   }
 }

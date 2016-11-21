@@ -1,0 +1,153 @@
+.activity-card {
+  width: 32%;
+  box-sizing: border-box;
+  color: #aaa;
+  font-size: 13px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  margin-bottom: 1rem;
+}
+
+.mason-grid {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin:0 auto;
+  transition:height .7s ease-out;
+}
+
+.grid-sizer {
+  width: 32%;
+    box-sizing: border-box;
+    cursor: pointer;
+    color: #aaa;
+    font-size: 13px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    margin-bottom: 1rem;
+}
+
+.gutter-sizer {
+  width:2%;
+}
+
+@media #{$medium-and-down} {
+  .grid-sizer, .activity-card {
+    width:49%;
+    left: auto;
+    right: auto;
+  }
+  .mason-grid {
+    width:98%;
+    margin-left:3px !important;
+  }
+}
+
+@media #{$small-and-down} {
+  .grid-sizer, .activity-card {
+    width:100%;
+    left: auto;
+    right: auto;
+  }
+}
+
+ @import "compass/css3";
+
+$width:  220px;
+$height: 70px;
+$border: 4px;
+
+$violet: #6559ae;
+$orange: #ff7159;
+
+$deg:  120deg;
+$size: 400%;
+$dur:  3s;
+
+@mixin clip-frame($width, $height, $border) {
+  -webkit-clip-path: polygon(0% 100%, $border 100%, $border $border, $width - $border $border, $width - $border $height - $border, $border $height - $border, $border 100%, 100% 100%, 100% 0%, 0% 0%);
+}
+
+
+@import "compass/css3";
+
+$width:  150px;
+$height: 40px;
+$border: 4px;
+
+$violet: #4db6ac;
+$orange: #009688;
+
+$deg:  120deg;
+$size: 400%;
+$dur:  3s;
+
+@mixin clip-frame($width, $height, $border) {
+  -webkit-clip-path: polygon(0% 100%, $border 100%, $border $border, $width - $border $border, $width - $border $height - $border, $border $height - $border, $border 100%, 100% 100%, 100% 0%, 0% 0%);
+}
+
+.gradient-btn {
+  cursor:pointer;
+  display: block;
+  @extend .absolute-centering;
+  width: $width;
+  height: $height;
+  @extend .text-formatting;
+  z-index: 1;
+
+  &:after {
+    content: '';
+    background: linear-gradient($deg, $violet, $orange, $violet);
+    background-size: $size $size;
+    @include animation(gradient $dur ease-in-out infinite, border 1s forwards ease-in-out reverse);
+  }
+
+  & > span {
+    border-radius:3px;
+    display: block;
+    background: linear-gradient($deg, $violet, $orange, $violet);
+    background-size: $size $size;
+    -webkit-text-fill-color: $white-color;
+     @include animation(gradient $dur ease-in-out infinite);
+  }
+}
+
+/* helpers */
+
+.absolute-centering {
+  margin: auto;
+  padding-top:20px;
+}
+
+.text-formatting {
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  letter-spacing: 2px;
+  line-height: 60px;
+  font-family: 'Open Sans';
+  font-size: 1.2rem;
+}
+
+/* motion */
+
+@include keyframes(gradient) {
+    0%   { background-position: 14% 0%; }
+    50%  { background-position: 87% 100%; }
+    100% { background-position: 14% 0%; }
+}

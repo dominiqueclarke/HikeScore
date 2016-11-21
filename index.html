@@ -20,64 +20,68 @@
 </head>
 <body>
   <div id="background"></div>
-  <ui-view></ui-view>
+  <div class="ui-view-container">
+    <main ui-view></main ui-view>
+  </div>
   <footer class="page-footer teal">
     <div class="container">
       <div class="row">
         <div class="col l6 s12">
-          <h5 class="white-text">Company Bio</h5>
-          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+          <h5 class="white-text">HikeScore</h5>
+          <p class="grey-text text-lighten-4">Hike Score helps you discover outdoor activities in any area. Use HikeScore to determine how outdoor-friendly your neighborhood is.</p>
 
 
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Settings</h5>
-          <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
-          </ul>
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Connect</h5>
-          <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
-          </ul>
         </div>
       </div>
     </div>
     <div class="footer-copyright">
       <div class="container">
-      Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+      Made by <a class="brown-text text-lighten-3" href="http://dominiqueclarke.github.io/portfolio">Dominique Clarke</a>
       </div>
     </div>
   </footer>
 
 
-  <!--  Scripts-->
+  <!--  Jquery, Angular & Third Party Angular Directives -->
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+  <script src="src/angular-masonry-directive.js"></script>
 
-  <!-- JavaScript for: jQuery, angular, materialize, and angular-materialize. All of which are needed. -->
+  <!-- Mapbox -->
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.23.0/mapbox-gl.js'></script>
+
+  <!-- Materialize -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-materialize/0.2.1/angular-materialize.min.js"></script>
 
+
   <script src="src/app.js"></script>
   <script src="src/controllers/resultsCtrl.js"></script>
-  <script src="src/meetupService.js"></script>
-  <script src="src/zipcodeService.js"></script>
-  <script src="src/trailsService.js"></script>
+  <script src="src/services/zipcodeService.js"></script>
+  <script src="src/services/trailsService.js"></script>
+  <script src="src/services/mapboxService.js"></script>
   <script src="src/components/query/queryCtrl.js"></script>
   <script src="src/components/query/query.js"></script>
   <script src="src/components/mapbox/mapboxCtrl.js"></script>
   <script src="src/components/mapbox/mapbox.js"></script>
-  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.23.0/mapbox-gl.js'></script>
+  <script src="src/components/featuredLocations/featuredLocations.js"></script>
+  <script src="src/components/featuredLocations/featuredLocationsCtrl.js"></script>
+  <script src="src/components/activityCard/activityCard.js"></script>
   <script src="src/htmlFilter.js"></script>
+
+  <!-- Angular Masonry dependancies -->
+  <script src="bower_components/jquery-bridget/jquery-bridget.js"></script>
+  <script src="bower_components/get-size/get-size.js"></script>
+  <script src="bower_components/ev-emitter/ev-emitter.js"></script>
+  <script src="bower_components/desandro-matches-selector/matches-selector.js"></script>
+  <script src="bower_components/fizzy-ui-utils/utils.js"></script>
+  <script src="bower_components/outlayer/item.js"></script>
+  <script src="bower_components/outlayer/outlayer.js"></script>
+  <script src="bower_components/masonry/masonry.js"></script>
+  <script src="bower_components/imagesloaded/imagesloaded.js"></script>
+
 
   </body>
 </html>
